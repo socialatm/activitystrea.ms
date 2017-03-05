@@ -7,10 +7,22 @@ const social = require('vocabs-social');
 
 const Everyone = composedType(Population, {
   get havingRelationship() {
-    return this.get(social.havingRelationship);
+    const ret = this.get(social.havingRelationship);
+    Object.defineProperty(this, 'havingRelationship', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   },
   get havingRole() {
-    return this.get(social.havingRole);
+    const ret = this.get(social.havingRole);
+    Object.defineProperty(this, 'havingRole', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   }
 });
 

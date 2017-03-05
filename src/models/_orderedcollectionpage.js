@@ -12,7 +12,12 @@ const OrderedCollectionPage =
   composedType([OrderedCollection, CollectionPage],
   {
     get startIndex() {
-      let ret = Math.max(0,this.get(as.startIndex));
+      const ret = Math.max(0,this.get(as.startIndex));
+      Object.defineProperty(this, 'startIndex', {
+        enumerable: true,
+        configurable: false,
+        value: isNaN(ret) ? 0 : ret
+      });
       return isNaN(ret) ? 0 : ret;
     }
   });

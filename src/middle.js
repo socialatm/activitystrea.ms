@@ -15,7 +15,7 @@ class AS2Writer extends Writable {
   }
 }
 
-function as2middleware(req,res,next) {
+function as2middleware(req, res, next) {
   function error() {
     res.status(400).end('Could not successfully parse payload');
   }
@@ -26,7 +26,7 @@ function as2middleware(req,res,next) {
   if (req.is('application/json') || req.is('application/*+json')) {
     let str = new as.Stream();
     req.pipe(str)
-       .on('end', ()=>{next();})
+       .on('end', () => next())
        .on('error', error)
        .pipe(new AS2Writer(req))
        .on('error', error);

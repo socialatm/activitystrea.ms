@@ -10,19 +10,49 @@ const rdfs = require('vocabs-rdfs');
 
 exports.model = {
   get Population() {
-    return require('./_population');
+    const ret = require('./_population');
+    Object.defineProperty(this, 'Population', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   },
   get Interested() {
-    return require('./_interested');
+    const ret = require('./_interested');
+    Object.defineProperty(this, 'Interested', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   },
   get Everyone() {
-    return require('./_everyone');
+    const ret = require('./_everyone');
+    Object.defineProperty(this, 'Everyone', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   },
   get CompoundPopulation() {
-    return require('./_compoundpopulation');
+    const ret = require('./_compoundpopulation');
+    Object.defineProperty(this, 'CompoundPopulation', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   },
   get Common() {
-    return require('./_common');
+    const ret = require('./_common');
+    Object.defineProperty(this, 'Common', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   }
 };
 

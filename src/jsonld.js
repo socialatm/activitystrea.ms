@@ -43,9 +43,9 @@ function getContext(options) {
   }
 }
 
-module.exports = {
+class JsonLD {
 
-  normalize(expanded, options, callback) {
+  static normalize(expanded, options, callback) {
     if (typeof options === 'function') {
       callback = options;
       options = {};
@@ -59,9 +59,9 @@ module.exports = {
         if (err) return callback(err);
         callback(null,doc);
       });
-  },
+  }
 
-  compact(expanded, options, callback) {
+  static compact(expanded, options, callback) {
     if (typeof options === 'function') {
       callback = options;
       options = {};
@@ -80,17 +80,17 @@ module.exports = {
           callback(null, doc);
         }
       });
-  },
+  }
 
-  verify(input, options, callback) {
+  static verify(input, options, callback) {
     warn();
     if (typeof input === 'string')
       input = JSON.parse(input);
     checkCallback(callback);
     jsig.verify(input, options, callback);
-  },
+  }
 
-  import(input, options, callback) {
+  static import(input, options, callback) {
     if (typeof options === 'function') {
       callback = options;
       options = {};
@@ -116,16 +116,17 @@ module.exports = {
         }
       }
     );
-  },
-
-  importFromRDF(input, callback) {
-    checkCallback(callback);
-    jsonld.fromRDF(input, {format:'application/nquads'},
-    (err,expanded)=> {
-      if (err) return callback(err);
-      let base = models.wrap_object(expanded[0]);
-      callback(null,base);
-    });
   }
 
-};
+  static importFromRDF(input, callback) {
+    checkCallback(callback);
+    jsonld.fromRDF(input, {format:'application/nquads'},
+    (err, expanded)=> {
+      if (err) return callback(err);
+      let base = models.wrap_object(expanded[0]);
+      callback(null, base);
+    });
+  }
+}
+
+module.exports = JsonLD;

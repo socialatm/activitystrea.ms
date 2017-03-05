@@ -7,7 +7,13 @@ const composedType = Base.composedType;
 
 const Profile = composedType(undefined, {
   get describes() {
-    return this.get(as.describes);
+    const describes = this.get(as.describes);
+    Object.defineProperty(this, 'describes', {
+      enumerable: true,
+      configurable: false,
+      value: describes
+    });
+    return describes;
   }
 });
 

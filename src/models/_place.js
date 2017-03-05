@@ -10,27 +10,58 @@ const composedType = Base.composedType;
 
 const Place = composedType(undefined, {
   get accuracy() {
-    let ret = range(0, 100, this.get(as.accuracy));
+    const ret = range(0, 100, this.get(as.accuracy));
+    Object.defineProperty(this, 'accuracy', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret ;
   },
   get altitude() {
-    let ret = this.get(as.altitude);
+    const ret = this.get(as.altitude);
+    Object.defineProperty(this, 'altitude', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret ;
   },
   get latitude() {
     let ret = range(-90.0, 90.0, this.get(as.latitude));
+    Object.defineProperty(this, 'latitude', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret ;
   },
   get longitude() {
-    let ret = range(-180.0, 180.0, this.get(as.longitude));
+    const ret = range(-180.0, 180.0, this.get(as.longitude));
+    Object.defineProperty(this, 'longitude', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret ;
   },
   get radius() {
-    let ret = range(0, Infinity, this.get(as.radius));
+    const ret = range(0, Infinity, this.get(as.radius));
+    Object.defineProperty(this, 'radius', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret ;
   },
   get units() {
-    return this.get(as.units);
+    const units = this.get(as.units);
+    Object.defineProperty(this, 'units', {
+      enumerable: true,
+      configurable: false,
+      value: units
+    });
+    return units;
   }
 });
 

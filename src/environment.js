@@ -36,16 +36,26 @@ class Environment {
   }
   
   addAssumedContext() {
-    let contexts = Array.prototype.slice.call(arguments);
-    if (contexts.length > 0)
+    if (arguments.length > 0) {
+      const contexts = new Array(arguments.length);
+      for (var n = 0; n < arguments.length; n++)
+        contexts[n] = arguments[n];
       this[_defcontext] = contexts.concat(this[_defcontext]);
+    }
     return this;
   }
   
   setAssumedContext() {
-    let contexts = Array.prototype.slice.call(arguments);
-    if (contexts.indexOf(as.ns) < 0)
-      contexts.push(as.ns);
+    const contexts = new Array(arguments.length);
+    var hasAs = false;
+    if (arguments.length > 0) {
+      for (var n = 0; n < arguments.length; n++) {
+        contexts[n] = arguments[n];
+        if (contexts[n] === as.ns && !hasNs)
+          hasAs = true;
+      }
+    }
+    if (!hasNs) contexts.push(as.ns);
     this[_defcontext] = contexts;
     return this;
   }
@@ -54,6 +64,25 @@ class Environment {
     if (!input['@context'])
       input['@context'] = this[_defcontext];
   }
+
+  static addDefaultAssumedContext() {
+    if (arguments.length > 0) {
+      for (var n = 0; n < arguments.length; n++)
+        default_context.unshift(arguments[n]);
+    }
+  }
+
+  static setDefaultAssumedContext() {
+    const contexts = new Array(arguments.length);
+    var hasAs = false;
+    for (var n = 0; n < arguments.length; n++) {
+      contexts[n] = arguments[n];
+      if (contexts[n] === as.ns && !hasNs)
+        hasAs = true;
+    }
+    if (!hasAs) contexts.push(as.ns);
+    default_context = contexts;
+  }
 }
 
 Object.defineProperty(Environment, 'environment', {
@@ -61,20 +90,5 @@ Object.defineProperty(Environment, 'environment', {
   enumerable: true,
   value: Symbol('environment')
 });
-
-Environment.addDefaultAssumedContext = function() {
-  let contexts = Array.prototype.slice.call(arguments);
-  if (contexts.length > 0) {
-    for (let context of contexts)
-      default_context.unshift(context);
-  }
-};
-
-Environment.setDefaultAssumedContext = function() {
-  let contexts = Array.prototype.slice.call(arguments);
-  if (contexts.indexOf(as.ns) < 0)
-    contexts.push(as.ns);
-  default_context = contexts;
-};
 
 module.exports = Environment;

@@ -7,7 +7,13 @@ const social = require('vocabs-social');
 
 const CompoundPopulation = composedType(Population, {
   get member() {
-    return this.get(social.member);
+    const ret = this.get(social.member);
+    Object.defineProperty(this, 'member', {
+      enumerable: true,
+      configurable: false,
+      value: ret
+    });
+    return ret;
   }
 });
 

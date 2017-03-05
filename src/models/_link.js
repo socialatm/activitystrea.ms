@@ -12,36 +12,74 @@ class Link extends Base {
   }
 
   get href() {
-    let ret = this.get(as.href);
+    const ret = this.get(as.href);
+    Object.defineProperty(this, 'href', {
+      enumerable: true,
+      configurable: false,
+      value: ret ? ret.id : undefined
+    });
     return ret ? ret.id : undefined;
   }
 
   get rel() {
-    return this.get(as.rel);
+    const rel = this.get(as.rel);
+    Object.defineProperty(this, 'rel', {
+      enumerable: true,
+      configurable: false,
+      value: rel
+    });
+    return rel;
   }
 
   get mediaType() {
-    return this.get(as.mediaType);
+    const mediaType = this.get(as.mediaType);
+    Object.defineProperty(this, 'mediaType', {
+      enumerable: true,
+      configurable: false,
+      value: mediaType
+    });
+    return mediaType;
   }
 
   get name() {
-    return this.get(as.name);
+    const name = this.get(as.name);
+    Object.defineProperty(this, 'name', {
+      enumerable: true,
+      configurable: false,
+      value: name
+    });
+    return name
   }
 
   get hreflang() {
-    return this.get(as.hreflang);
+    const hreflang = this.get(as.hreflang);
+    Object.defineProperty(this, 'hreflang', {
+      enumerable: true,
+      configurable: false,
+      value: hreflang
+    });
+    return hreflang;
   }
 
   get height() {
-    let ret = range(0, Infinity, this.get(as.height));
+    const ret = range(0, Infinity, this.get(as.height));
+    Object.defineProperty(this, 'height', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? 0 : ret
+    });
     return isNaN(ret) ? 0 : ret;
   }
 
   get width() {
-    let ret = range(0, Infinity, this.get(as.width));
+    const ret = range(0, Infinity, this.get(as.width));
+    Object.defineProperty(this, 'width', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? 0 : ret
+    });
     return isNaN(ret) ? 0 : ret;
   }
-
 }
 
 class LinkBuilder extends Base.Builder {

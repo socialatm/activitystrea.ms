@@ -11,7 +11,12 @@ const social = require('vocabs-social');
 
 const Interested = composedType(Population, {
   get confidence() {
-    let ret = range(0,100,this.get(social.confidence));
+    const ret = range(0,100,this.get(social.confidence));
+    Object.defineProperty(this, 'confidence', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret;
   }
 });

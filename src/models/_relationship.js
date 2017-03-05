@@ -7,13 +7,31 @@ const AsObject = require('./_object');
 
 const Relationship = composedType(undefined, {
   get subject() {
-    return this.get(as.subject);
+    const subject = this.get(as.subject);
+    Object.defineProperty(this, 'subject', {
+      enumerable: true,
+      configurable: false,
+      value: subject
+    });
+    return subject;
   },
   get object() {
-    return this.get(as.object);
+    const object = this.get(as.object);
+    Object.defineProperty(this, 'object', {
+      enumerable: true,
+      configurable: false,
+      value: object
+    });
+    return object
   },
   get relationship() {
-    return this.get(as.relationship);
+    const relationship = this.get(as.relationship);
+    Object.defineProperty(this, 'relationship', {
+      enumerable: true,
+      configurable: false,
+      value: relationship
+    });
+    return relationship;
   }
 });
 

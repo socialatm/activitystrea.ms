@@ -10,7 +10,12 @@ const social = require('vocabs-social');
 
 const Population = composedType(undefined, {
   get distance() {
-    let ret = range(0, Infinity, this.get(social.distance));
+    const ret = range(0, Infinity, this.get(social.distance));
+    Object.defineProperty(this, 'distance', {
+      enumerable: true,
+      configurable: false,
+      value: isNaN(ret) ? undefined : ret
+    });
     return isNaN(ret) ? undefined : ret;
   }
 });

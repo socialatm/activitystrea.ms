@@ -7,22 +7,58 @@ const as = require('vocabs-as');
 
 const Activity = composedType(undefined, {
   get actor() {
-    return this.get(as.actor);
+    const actor = this.get(as.actor);
+    Object.defineProperty(this, 'actor', {
+      enumerable: true,
+      configurable: false,
+      value: actor
+    });
+    return actor;
   },
   get object() {
-    return this.get(as.object);
+    const obj = this.get(as.object);
+    Object.defineProperty(this, 'object', {
+      enumerable: true,
+      configurable: false,
+      value: obj
+    });
+    return obj;
   },
   get target() {
-    return this.get(as.target);
+    const target = this.get(as.target);
+    Object.defineProperty(this, 'target', {
+      enumerable: true,
+      configurable: false,
+      value: target
+    });
+    return target;
   },
   get result() {
-    return this.get(as.result);
+    const result = this.get(as.result);
+    Object.defineProperty(this, 'result', {
+      enumerable: true,
+      configurable: false,
+      value: result
+    });
+    return result;
   },
   get origin() {
-    return this.get(as.origin);
+    const origin = this.get(as.origin);
+    Object.defineProperty(this, 'origin', {
+      enumerable: true,
+      configurable: false,
+      value: origin
+    });
+    return origin;
   },
   get instrument() {
-    return this.get(as.instrument);
+    const instrument = this.get(as.instrument);
+    Object.defineProperty(this, 'instrument', {
+      enumerable: true,
+      configurable: false,
+      value: instrument
+    });
+    return instrument;
   }
 });
 

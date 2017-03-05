@@ -18,25 +18,25 @@ const _map = Symbol('map');
  **/
 class Loader {
   constructor() {
-    this[_map] = new Map();
+    this[_map] = Object.create(null);
     this.register(as.ns, as_context);
     this.register(as_url_nohash, as_context);
     this.register(jsig_url, securityContext);
   }
   
   register(url, context) {
-    this[_map].set(url, context);
+    this[_map][url] = context;
     return this;
   }
   
   get(url) {
-    return this[_map].get(url);
+    return this[_map][url];
   }
   
   makeDocLoader() {
-    return (url,cb)=> {
+    return (url, cb) => {
       checkCallback(cb);
-      let context = this.get(url);
+      let context = this[_map][url];
       if (context) {
         return cb(null, {
           contextUrl: null,

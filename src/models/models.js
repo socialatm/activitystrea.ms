@@ -3,10 +3,10 @@
 const as = require('vocabs-as');
 const reasoner = require('../reasoner');
 const utils = require('../utils');
-const LRU = require('lru-cache');
 
 const _compose = Symbol('compose');
-const cache = new LRU(100);
+
+var cache = Object.create(null);
 
 function core_recognizer(type) {
   let thing;
@@ -38,12 +38,12 @@ function core_recognizer(type) {
 var recognizers = [core_recognizer];
 
 function recognize(type) {
-  let thing = cache.get(type);
-  if (thing) return thing;
+  let thing = cache[type];
+  if (thing !== undefined) return thing;
   for (let recognizer of recognizers) {
     thing = recognizer(type);
-    if (thing) {
-      cache.set(type, thing);
+    if (thing !== undefined) {
+      cache[type] = thing;
       return thing;
     }
   }
@@ -53,59 +53,143 @@ function recognize(type) {
 module.exports = exports = {
 
   get LanguageValue() {
-    return require('./_languagevalue');
+    const lv = require('./_languagevalue');
+    Object.defineProperty(this, 'LanguageValue', {
+      enumerable: true,
+      configurable: false,
+      value: lv
+    });
+    return lv;
   },
 
   get Base() {
-    return require('./_base');
+    const base = require('./_base');
+    Object.defineProperty(this, 'Base', {
+      enumerable: true,
+      configurable: false,
+      value: base
+    });
+    return base;
   },
 
   get Object() {
-    return require('./_object');
+    const obj = require('./_object');
+    Object.defineProperty(this, 'Object', {
+      enumerable: true,
+      configurable: false,
+      value: obj
+    });
+    return obj;
   },
 
   get Activity() {
-    return require('./_activity');
+    const activity = require('./_activity');
+    Object.defineProperty(this, 'Activity', {
+      enumerable: true,
+      configurable: false,
+      value: activity
+    });
+    return activity;
   },
 
   get Collection() {
-    return require('./_collection');
+    const col = require('./_collection');
+    Object.defineProperty(this, 'Collection', {
+      enumerable: true,
+      configurable: false,
+      value: col
+    });
+    return col;
   },
 
   get OrderedCollection() {
-    return require('./_orderedcollection');
+    const col = require('./_orderedcollection');
+    Object.defineProperty(this, 'OrderedCollection', {
+      enumerable: true,
+      configurable: false,
+      value: col
+    });
+    return col;
   },
 
   get CollectionPage() {
-    return require('./_collectionpage');
+    const page = require('./_collectionpage');
+    Object.defineProperty(this, 'CollectionPage', {
+      enumerable: true,
+      configurable: false,
+      value: page
+    });
+    return page;
   },
 
   get OrderedCollectionPage() {
-    return require('./_orderedcollectionpage');
+    const page = require('./_orderedcollectionpage');
+    Object.defineProperty(this, 'OrderedCollectionPage', {
+      enumerable: true,
+      configurable: false,
+      value: page
+    });
+    return page;
   },
 
   get Link() {
-    return require('./_link');
+    const link = require('./_link');
+    Object.defineProperty(this, 'Link', {
+      enumerable: true,
+      configurable: false,
+      value: link
+    });
+    return link;
   },
 
   get Place() {
-    return require('./_place');
+    const place = require('./_place');
+    Object.defineProperty(this, 'Place', {
+      enumerable: true,
+      configurable: false,
+      value: place
+    });
+    return place;
   },
 
   get Relationship() {
-    return require('./_relationship');
+    const rel = require('./_relationship');
+    Object.defineProperty(this, 'Relationship', {
+      enumerable: true,
+      configurable: false,
+      value: rel
+    });
+    return rel;
   },
 
   get Profile() {
-    return require('./_profile');
+    const profile = require('./_profile');
+    Object.defineProperty(this, 'Profile', {
+      enumerable: true,
+      configurable: false,
+      value: profile
+    });
+    return profile;
   },
 
   get Question() {
-    return require('./_question');
+    const question = require('./_question');
+    Object.defineProperty(this, 'Question', {
+      enumerable: true,
+      configurable: false,
+      value: question
+    });
+    return question;
   },
   
   get Tombstone() {
-    return require('./_tombstone');
+    const tombstone = require('./_tombstone');
+    Object.defineProperty(this, 'Tombstone', {
+      enumerable: true,
+      configurable: false,
+      value: tombstone
+    });
+    return tombstone;
   },
   
   get compose() {
@@ -150,6 +234,6 @@ module.exports = exports = {
     if (typeof recognizer !== 'function')
       throw new Error('Recognizer must be a function');
     recognizers = [recognizer].concat(recognizers);
-    cache.reset();
+    cache = Object.create(null);
   }
 };

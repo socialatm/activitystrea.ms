@@ -12,109 +12,265 @@ class AsObject extends Base {
   }
   
   get mediaType() {
-    return this.get(as.mediaType) || 'text/html';
+    const mediaType = this.get(as.mediaType) || 'text/html';
+    Object.defineProperty(this, 'mediaType', {
+      enumerable: true,
+      configurable: false,
+      value: mediaType
+    });
+    return mediaType;
   }
 
   get attachment() {
-    return this.get(as.attachment);
+    const attachment = this.get(as.attachment);
+    Object.defineProperty(this, 'attachment', {
+      enumerable: true,
+      configurable: false,
+      value: attachment
+    });
+    return attachment;
   }
 
   get attributedTo() {
-    return this.get(as.attributedTo);
+    const attributedTo = this.get(as.attributedTo);
+    Object.defineProperty(this, 'attributedTo', {
+      enumerable: true,
+      configurable: false,
+      value: attributedTo
+    });
+    return attributedTo;
   }
 
   get content() {
-    return this.get(as.content);
+    const content =  this.get(as.content);
+    Object.defineProperty(this, 'content', {
+      enumerable: true,
+      configurable: false,
+      value: content
+    });
+    return content;
   }
 
   get context() {
-    return this.get(as.context);
+    const context = this.get(as.context);
+    Object.defineProperty(this, 'context', {
+      enumerable: true,
+      configurable: false,
+      value: context
+    });
+    return context;
   }
 
   get name() {
-    return this.get(as.name);
+    const name = this.get(as.name);
+    Object.defineProperty(this, 'name', {
+      enumerable: true,
+      configurable: false,
+      value: name
+    });
+    return name;
   }
 
   get summary() {
-    return this.get(as.summary);
+    const summary = this.get(as.summary);
+    Object.defineProperty(this, 'summary', {
+      enumerable: true,
+      configurable: false,
+      value: summary
+    });
+    return summary;
   }
 
   get endTime() {
-    return this.get(as.endTime);
+    const endTime = this.get(as.endTime);
+    Object.defineProperty(this, 'endTime', {
+      enumerable: true,
+      configurable: false,
+      value: endTime
+    });
+    return endTime;
   }
 
   get published() {
-    return this.get(as.published);
+    const published = this.get(as.published);
+    Object.defineProperty(this, 'published', {
+      enumerable: true,
+      configurable: false,
+      value: published
+    });
+    return published;
   }
 
   get startTime() {
-    return this.get(as.startTime);
+    const startTime = this.get(as.startTime);
+    Object.defineProperty(this, 'startTime', {
+      enumerable: true,
+      configurable: false,
+      value: startTime
+    });
+    return startTime;
   }
 
   get updated() {
-    return this.get(as.updated);
+    const updated = this.get(as.updated);
+    Object.defineProperty(this, 'updated', {
+      enumerable: true,
+      configurable: false,
+      value: updated
+    });
+    return updated;
   }
 
   get generator() {
-    return this.get(as.generator);
+    const generator = this.get(as.generator);
+    Object.defineProperty(this, 'generator', {
+      enumerable: true,
+      configurable: false,
+      value: generator
+    });
+    return generator;
   }
 
   get icon() {
-    return this.get(as.icon);
+    const icon = this.get(as.icon);
+    Object.defineProperty(this, 'icon', {
+      enumerable: true,
+      configurable: false,
+      value: icon
+    });
+    return icon;
   }
 
   get image() {
-    return this.get(as.image);
+    const image = this.get(as.image);
+    Object.defineProperty(this, 'image', {
+      enumerable: true,
+      configurable: false,
+      value: image
+    });
+    return image;
   }
 
   get inReplyTo() {
-    return this.get(as.inReplyTo);
+    const inReplyTo = this.get(as.inReplyTo);
+    Object.defineProperty(this, 'inReplyTo', {
+      enumerable: true,
+      configurable: false,
+      value: inReplyTo
+    });
+    return inReplyTo;
   }
 
   get location() {
-    return this.get(as.location);
+    const location = this.get(as.location);
+    Object.defineProperty(this, 'location', {
+      enumerable: true,
+      configurable: false,
+      value: location
+    });
+    return location;
   }
 
   get preview() {
-    return this.get(as.preview);
+    const preview = this.get(as.preview);
+    Object.defineProperty(this, 'preview', {
+      enumerable: true,
+      configurable: false,
+      value: preview
+    });
+    return preview;
   }
 
   get replies() {
-    return this.get(as.replies);
+    const replies = this.get(as.replies);
+    Object.defineProperty(this, 'replies', {
+      enumerable: true,
+      configurable: false,
+      value: replies
+    });
+    return replies;
   }
 
   get audience() {
-    return this.get(as.audience);
+    const audience = this.get(as.audience);
+    Object.defineProperty(this, 'audience', {
+      enumerable: true,
+      configurable: false,
+      value: audience
+    });
+    return audience;
   }
 
   get tag() {
-    return this.get(as.tag);
+    const tag = this.get(as.tag);
+    Object.defineProperty(this, 'tag', {
+      enumerable: true,
+      configurable: false,
+      value: tag
+    });
+    return tag;
   }
 
   get url() {
-    return this.get(as.url);
+    const url = this.get(as.url);
+    Object.defineProperty(this, 'url', {
+      enumerable: true,
+      configurable: false,
+      value: url
+    });
+    return url;
   }
 
   get to() {
-    return this.get(as.to);
+    const to = this.get(as.to);
+    Object.defineProperty(this, 'to', {
+      enumerable: true,
+      configurable: false,
+      value: to
+    });
+    return to;
   }
 
   get bto() {
-    return this.get(as.bto);
+    const bto = this.get(as.bto);
+    Object.defineProperty(this, 'bto', {
+      enumerable: true,
+      configurable: false,
+      value: bto
+    });
+    return bto;
   }
 
   get cc() {
-    return this.get(as.cc);
+    const cc = this.get(as.cc);
+    Object.defineProperty(this, 'cc', {
+      enumerable: true,
+      configurable: false,
+      value: cc
+    });
+    return cc;
   }
 
   get bcc() {
-    return this.get(as.bcc);
+    const bcc = this.get(as.bcc);
+    Object.defineProperty(this, 'bcc', {
+      enumerable: true,
+      configurable: false,
+      value: bcc
+    });
+    return bcc;
   }
 
   get duration() {
-    let ret = this.get(as.duration);
-    if (typeof ret === 'undefined') return;
-    return moment.duration(isNaN(ret)?ret:(ret*1000));
+    const ret = this.get(as.duration);
+    const dur = ret === undefined ? undefined :
+                moment.duration(isNaN(ret)?ret:(ret*1000));
+    Object.defineProperty(this, 'duration', {
+      enumerable: true,
+      configurable: false,
+      value: dur 
+    });
+    return dur;
   }
 }
 

@@ -8,13 +8,31 @@ const composedType = Base.composedType;
 
 const Question = composedType(Activity, {
   get anyOf() {
-    return this.get(as.anyOf);
+    const anyOf = this.get(as.anyOf);
+    Object.defineProperty(this, 'anyOf', {
+      enumerable: true,
+      configurable: false,
+      value: anyOf
+    });
+    return anyOf;
   },
   get oneOf() {
-    return this.get(as.oneOf);
+    const oneOf = this.get(as.oneOf);
+    Object.defineProperty(this, 'oneOf', {
+      enumerable: true,
+      configurable: false,
+      value: oneOf
+    });
+    return oneOf;
   },
   get closed() {
-    return this.get(as.closed);
+    const closed = this.get(as.closed);
+    Object.defineProperty(this, 'closed', {
+      enumerable: true,
+      configurable: false,
+      value: closed
+    });
+    return closed;
   }
 });
 

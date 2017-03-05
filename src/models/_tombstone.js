@@ -8,10 +8,22 @@ const composedType = Base.composedType;
 
 const Tombstone = composedType(AsObject, {
   get deleted() {
-    return this.get(as.deleted);
+    const deleted = this.get(as.deleted);
+    Object.defineProperty(this, 'deleted', {
+      enumerable: true,
+      configurable: false,
+      value: deleted
+    });
+    return deleted;
   },
   get formerType() {
-    return this.get(as.formerType);
+    const formerType = this.get(as.formerType);
+    Object.defineProperty(this, 'formerType', {
+      enumerable: true,
+      configurable: false,
+      value: formerType
+    });
+    return formerType;
   }
 });
 

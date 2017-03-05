@@ -33,13 +33,31 @@ function _set(target, key, val) {
 
 const Interval = composedType(undefined, {
   get upper() {
-    return this.get(interval.upper);
+    const upper = this.get(interval.upper);
+    Object.defineProperty(this, 'upper', {
+      enumerable: true,
+      configurable: false,
+      value: upper
+    });
+    return upper;
   },
   get lower() {
-    return this.get(interval.lower);
+    const lower = this.get(interval.lower);
+    Object.defineProperty(this, 'lower', {
+      enumerable: true,
+      configurable: false,
+      value: lower
+    });
+    return lower;
   },
   get step() {
-    return this.get(interval.step);
+    const step = this.get(interval.step);
+    Object.defineProperty(this, 'step', {
+      enumerable: true,
+      configurable: false,
+      value: step
+    });
+    return step;
   }
 });
 

@@ -7,13 +7,30 @@ const composedType = Base.composedType;
 
 const CollectionPage = composedType(Collection, {
   get partOf() {
-    return this.get(as.partOf);
+    const partOf = this.get(as.partOf);
+    Object.defineProperty(this, 'partOf', {
+      enumerable: true,
+      configurable: false,
+      value: partOf
+    });
+    return partOf;
   },
   get next() {
-    return this.get(as.next);
+    const next = this.get(as.next);
+    Object.defineProperty(this, 'next', {
+      enumerable: true,
+      configurable: false,
+      value: next
+    });
+    return next;
   },
   get prev() {
-    return this.get(as.prev);
+    const prev = this.get(as.prev);
+    Object.defineProperty(this, 'prev', {
+      enumerable: true,
+      configurable: false,
+      value: prev
+    });
   }
 });
 
