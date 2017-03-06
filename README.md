@@ -2,8 +2,8 @@
 
 Based on:
 
-* http://jasnell.github.io/w3c-socialwg-activitystreams/activitystreams-core/index.html
-* http://jasnell.github.io/w3c-socialwg-activitystreams/activitystreams-vocabulary/index.html
+* http://www.w3.org/TR/activitystreams-core
+* http://www.w3.org/TR/activitystreams-vocabulary
 
 Includes experimental support for:
 
@@ -29,7 +29,7 @@ as.object().
   content(
     as.langmap()
       .set('en', 'bar')
-      .set('fr', 'foo'))
+      .set('fr', 'foo')).
   publishedNow().
   prettyWrite((err,doc) => {
     if (err) throw err;
@@ -619,10 +619,6 @@ back to the Builder itself allowing methods to be chained.
 #### Method: `<Builder> as.models.Base.Builder.prototype.id(val)`
 
 Set the value of the `@id` property. Calling this repeatedly will overwrite the previous value.
-
-#### Method: `<Builder> as.models.Base.Builder.prototype.type(val)`
-
-Add a value to the `@type` property. Calling this repeatedly will add new values to the previous set.
 
 #### Method: `<Builder> as .models.Base.Builder.prototype.set(key, val[, options])`
 
