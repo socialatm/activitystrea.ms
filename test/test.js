@@ -942,6 +942,14 @@ describe('Templates...', ()=> {
     assert(!tmpl.object);
     done();
   });
+
+  it('should allow a value to be removed or replaced', (done) => {
+    const tmpl = as.like().actor(as.person().name('Joe')).template();
+    const like = tmpl().actor().get();
+    assert(!like.actor);
+    done();
+  });
+
 });
 
 describe('Extensions...', ()=> {
