@@ -3,6 +3,7 @@
 const set_date_val = require('../utils').set_date_val;
 const set_duration_val = require('../utils').set_duration_val;
 const as = require('vocabs-as');
+const ldp = require('vocabs-ldp');
 const Base = require('./_base');
 const moment = require('moment');
 
@@ -10,7 +11,7 @@ class AsObject extends Base {
   constructor(expanded, builder, environment) {
     super(expanded, builder || AsObject.Builder, environment);
   }
-  
+
   get mediaType() {
     const mediaType = this.get(as.mediaType) || 'text/html';
     Object.defineProperty(this, 'mediaType', {
@@ -268,9 +269,59 @@ class AsObject extends Base {
     Object.defineProperty(this, 'duration', {
       enumerable: true,
       configurable: false,
-      value: dur 
+      value: dur
     });
     return dur;
+  }
+
+  get inbox() {
+    const inbox = this.get(ldp.inbox);
+    Object.defineProperty(this, 'inbox', {
+      enumerable: true,
+      configurable: false,
+      value: inbox
+    });
+    return inbox;
+  }
+
+  get outbox() {
+    const outbox = this.get(as.outbox);
+    Object.defineProperty(this, 'outbox', {
+      enumerable: true,
+      configurable: false,
+      value: outbox
+    });
+    return outbox;
+  }
+
+  get followers() {
+    const followers = this.get(as.followers);
+    Object.defineProperty(this, 'followers', {
+      enumerable: true,
+      configurable: false,
+      value: followers
+    });
+    return followers;
+  }
+
+  get following() {
+    const following = this.get(as.following);
+    Object.defineProperty(this, 'following', {
+      enumerable: true,
+      configurable: false,
+      value: following
+    });
+    return following;
+  }
+
+  get liked() {
+    const liked = this.get(as.liked);
+    Object.defineProperty(this, 'liked', {
+      enumerable: true,
+      configurable: false,
+      value: liked
+    });
+    return liked;
   }
 }
 
@@ -406,10 +457,30 @@ class AsObjectBuilder extends Base.Builder {
   bcc(val) {
     return this.set(as.bcc, val);
   }
-  
+
   duration(val) {
     set_duration_val.call(this, as.duration, val);
     return this;
+  }
+
+  inbox(val) {
+    return this.set(ldp.inbox, val);
+  }
+
+  outbox(val) {
+    return this.set(as.outbox, val);
+  }
+
+  followers(val) {
+    return this.set(as.followers, val);
+  }
+
+  following(val) {
+    return this.set(as.following, val);
+  }
+
+  liked(val) {
+    return this.set(as.liked, val);
   }
 }
 AsObject.Builder = AsObjectBuilder;

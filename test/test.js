@@ -16,7 +16,7 @@ describe('Basics...', ()=> {
     assert.equal(object.type, asv.Object);
     done();
   });
-  
+
   function testFunctionalProperties(object) {
     assert.equal(object.content.get(), 'bar');
     assert.equal(object.content.get('fr'), 'foo');
@@ -27,7 +27,7 @@ describe('Basics...', ()=> {
     assert.equal(object.published.toISOString(), nowiso);
     assert.equal(object.updated.toISOString(), nowiso);
   }
-  
+
   it('should create an object and return all the correct values', (done)=> {
     var object = as.object()
       .content(
@@ -48,7 +48,7 @@ describe('Basics...', ()=> {
     testFunctionalProperties(object);
     done();
   });
-  
+
   it('should roundtrip correctly', (done)=> {
     var object = as.object()
       .content(
@@ -75,7 +75,7 @@ describe('Basics...', ()=> {
       });
     });
   });
-  
+
   it('should create a basic activity object', (done)=> {
     let activity = as.activity().actor('http://example').get();
     assert(activity instanceof models.Object);
@@ -84,26 +84,26 @@ describe('Basics...', ()=> {
     assert(activity.actor.first.id, 'http://example');
     done();
   });
-  
+
   it('should create a basic collection object', (done)=> {
     let collection = as.collection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
   });
-  
+
   it('should create a basic ordered collection object', (done)=> {
     let collection = as.orderedCollection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
   });
-  
+
   it('should create a basic link object', (done)=> {
     assert(as.link().get() instanceof models.Link);
     done();
   });
-  
+
   it('should create activities with an appropriate type', (done)=> {
     [['accept',asv.Accept],
      ['tentativeAccept',asv.TentativeAccept],
@@ -139,7 +139,7 @@ describe('Basics...', ()=> {
     });
     done();
   });
-  
+
   it('should create objects with an appropriate type', (done)=> {
     [
      ['application',asv.Application],
@@ -166,7 +166,7 @@ describe('Basics...', ()=> {
     });
     done();
   });
-  
+
   it('should create link objects with an appropriate type', (done)=> {
     [['mention',asv.Mention]].forEach((key)=> {
       var obj = as[key[0]]().get();
@@ -175,7 +175,7 @@ describe('Basics...', ()=> {
     });
     done();
   });
-  
+
   it('should create a complex object', (done)=> {
     // Test complex creation
     var obj =
@@ -183,19 +183,19 @@ describe('Basics...', ()=> {
         .actor('acct:joe@example.org')
         .object(as.note().content('this is a note'))
         .get();
-  
+
     assert.equal(1, obj.actor.length);
     var actor = obj.actor.first;
     assert.equal('acct:joe@example.org', actor.id);
     assert(actor instanceof models.Object);
-  
+
     assert.equal(1, obj.object.length);
     var note = obj.object.first;
     assert.equal(asv.Note, note.type);
     assert.equal(note.content.get(), 'this is a note');
     done();
   });
-  
+
   it('should import from JSON without errors', (done)=> {
     as.import({
       'type': 'Like',
@@ -889,10 +889,27 @@ describe('Basics...', ()=> {
       done();
     });
   });
-  
+
   it('Nothing in as vocab should be undefined', (done)=> {
     let keys = Object.keys(asv).filter((item)=>{return !(asv[item]);});
     assert.equal(0, keys.length);
+    done();
+  });
+
+  it('should have appropriate values for the ActivityPub collections', (done)=> {
+    var doc = as.object()
+      .inbox('https://evanp.example/inbox')
+      .outbox('https://evanp.example/outbox')
+      .followers('https://evanp.example/followers')
+      .following('https://evanp.example/following')
+      .liked('https://evanp.example/liked')
+      .get();
+    assert(doc instanceof as.models.Object);
+    assert.equal(doc.inbox.first, 'https://evanp.example/inbox');
+    assert.equal(doc.outbox.first, 'https://evanp.example/outbox');
+    assert.equal(doc.followers.first, 'https://evanp.example/followers');
+    assert.equal(doc.following.first, 'https://evanp.example/following');
+    assert.equal(doc.liked.first, 'https://evanp.example/liked');
     done();
   });
 });
