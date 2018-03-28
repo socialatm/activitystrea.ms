@@ -41,7 +41,7 @@ Which produces the output:
 
 ```json
 {
-  "@context": "http://www.w3.org/ns/activitystreams",
+  "@context": "https://www.w3.org/ns/activitystreams",
   "@type": "Object",
   "contentMap": {
     "en": "bar",
@@ -66,7 +66,7 @@ as.create().
 Which produces the output:
 ```json
 {
-  "@context": "http://www.w3.org/ns/activitystreams",
+  "@context": "https://www.w3.org/ns/activitystreams",
   "@type": "Create",
   "actor": "acct:sally@example.org",
   "object": "http://www.example.org/post"
@@ -481,7 +481,7 @@ Imports the specified JavaScript object `obj`, performing JSON-LD expansion as n
 
 ```javascript
 var obj = {
-  '@context': 'http://www.w3.org/ns/activitystreams',
+  '@context': 'https://www.w3.org/ns/activitystreams',
   '@type': 'Person',
   name: 'Joe'
 };
@@ -639,99 +639,99 @@ The base class for all Activity Streams 2.0 Object instances. Inherits from `as.
 
 #### Property: `as.models.Object.prototype.attachment`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#attachment` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#attachment` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.attributedTo'
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#attributedTo` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#attributedTo` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.content`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#content` property. Will be either `undefined` or a `as.models.LanguageValue`.
+Returns the value of the `https://www.w3.org/ns/activitystreams#content` property. Will be either `undefined` or a `as.models.LanguageValue`.
 
 #### Property: `as.models.Object.prototype.context`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#context` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#context` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.name`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#name` property. Will be either `undefined` or a `as.models.LanguageValue`.
+Returns the value of the `https://www.w3.org/ns/activitystreams#name` property. Will be either `undefined` or a `as.models.LanguageValue`.
 
 #### Property: `as.models.Object.prototype.summary`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#summary` property. Will be either `undefined` or a `as.models.LanguageValue`.
+Returns the value of the `https://www.w3.org/ns/activitystreams#summary` property. Will be either `undefined` or a `as.models.LanguageValue`.
 
 #### Property: `as.models.Object.prototype.endTime`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#endTime` property. Will be either `undefined` or a JavaScript Date object.
+Returns the value of the `https://www.w3.org/ns/activitystreams#endTime` property. Will be either `undefined` or a JavaScript Date object.
 
 #### Property: `as.models.Object.prototype.published`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#published` property. Will be either `undefined` or a JavaScript Date object.
+Returns the value of the `https://www.w3.org/ns/activitystreams#published` property. Will be either `undefined` or a JavaScript Date object.
 
 #### Property: `as.models.Object.prototype.startTime`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#startTime` property. Will be either `undefined` or a JavaScript Date object.
+Returns the value of the `https://www.w3.org/ns/activitystreams#startTime` property. Will be either `undefined` or a JavaScript Date object.
 
 #### Property: `as.models.Object.prototype.updated`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#updated` property. Will be either `undefined` or a JavaScript Date object.
+Returns the value of the `https://www.w3.org/ns/activitystreams#updated` property. Will be either `undefined` or a JavaScript Date object.
 
 #### Property: `as.models.Object.prototype.generator`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#generator` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#generator` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.icon`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#icon` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#icon` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.image`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#image` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#image` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.inReplyTo`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#inReplyTo` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#inReplyTo` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.location`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#location` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#location` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.preview`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#preview` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#preview` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.replies`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#replies` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#replies` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.audience`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#audience` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#audience` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.tag`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#tag` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#tag` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.url`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#url` property. Will be either `undefined` or an Iterable  of `as.model.Link` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#url` property. Will be either `undefined` or an Iterable  of `as.model.Link` instances.
 
 #### Property: `as.models.Object.prototype.to`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#to` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#to` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.bto`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#bto` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#bto` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.cc`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#cc` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#cc` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Object.prototype.bcc`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#bcc` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#bcc` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 ### Class: `as.models.Object.Builder > as.models.Base.Builder`
 
@@ -739,15 +739,15 @@ Builder for `as.models.Object` instances.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.attachment(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#attachment` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#attachment` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.attributedTo(val)'
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#attributedTo` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#attributedTo` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.content(val)`
 
-Sets an optional language-tagged value for the `http://www.w3.org/ns/activitystreams#content` property. To set
+Sets an optional language-tagged value for the `https://www.w3.org/ns/activitystreams#content` property. To set
 language-tagged values, use the `as.langmap` method to create a
 LanguageValue.Builder.
 
@@ -769,11 +769,11 @@ as.object()
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.context(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#context` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#context` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.name(val)`
 
-Sets an optional language-tagged value for the `http://www.w3.org/ns/activitystreams#name` property.
+Sets an optional language-tagged value for the `https://www.w3.org/ns/activitystreams#name` property.
 
 ```
 as.object()
@@ -793,7 +793,7 @@ as.object()
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.summary(val)`
 
-Sets an optional language-tagged value for the `http://www.w3.org/ns/activitystreams#summary` property.
+Sets an optional language-tagged value for the `https://www.w3.org/ns/activitystreams#summary` property.
 
 ```
 as.object()
@@ -813,95 +813,95 @@ as.object()
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.endTime(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#endTime` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#endTime` property.
 The value *must* be a JavaScript Date object.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.endTimeNow()`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#endTime` property to the current date and time.
+Sets the value of the `https://www.w3.org/ns/activitystreams#endTime` property to the current date and time.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.published(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#published` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#published` property.
 The value *must* be a JavaScript Date object.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.publishedNow()`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#published` property to the current date and time.
+Sets the value of the `https://www.w3.org/ns/activitystreams#published` property to the current date and time.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.startTime(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#startTime` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#startTime` property.
 The value *must* be a JavaScript Date object.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.startTimeNow()`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#startTime` property to the current date and time.
+Sets the value of the `https://www.w3.org/ns/activitystreams#startTime` property to the current date and time.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.updated(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#updated` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#updated` property.
 The value *must* be a JavaScript Date object.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.updatedNow()`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#updated` property to the current date and time.
+Sets the value of the `https://www.w3.org/ns/activitystreams#updated` property to the current date and time.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.generator(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#generator` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#generator` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.icon(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#icon` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#icon` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.image(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#image` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#image` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.inReplyTo(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#inReplyTo` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#inReplyTo` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.location(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#location` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#location` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.preview(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#preview` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#preview` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.replies(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#replies` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#replies` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.audience(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#audience` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#audience` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.tag(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#tag` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#tag` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.url(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#url` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#url` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.to(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#to` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#to` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.bto(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#bto` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#bto` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.cc(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#cc` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#cc` property.
 
 #### Method: `<Builder> as.models.Object.Builder.prototype.bcc(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#bcc` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#bcc` property.
 
 ### Class: `as.models.Activity > as.models.Object`
 
@@ -909,27 +909,27 @@ Base class for all Activity Streams 2.0 Activity instances. Inherits from `as.mo
 
 #### Property: `as.models.Activity.prototype.actor`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#actor` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#actor` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Activity.prototype.object`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#object` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#object` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Activity.prototype.target`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#target` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#target` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Activity.prototype.result`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#result` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#result` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Activity.prototype.origin`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#origin` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#origin` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 #### Property: `as.models.Activity.prototype.instrument`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#instrument` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#instrument` property. Will be either `undefined` or an Iterable  of `as.model.Base` instances.
 
 ### Class: `as.models.Activity.Builder > as.models.Object.Builder`
 
@@ -937,27 +937,27 @@ The base class for all `as.models.Activity` builder instances. Inherits from `as
 
 #### Method: `<Builder> as.models.Activity.Builder.actor(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#actor` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#actor` property.
 
 #### Method: `<Builder> as.models.Activity.Builder.object(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#object` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#object` property.
 
 #### Method: `<Builder> as.models.Activity.Builder.target(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#target` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#target` property.
 
 #### Method: `<Builder> as.models.Activity.Builder.result(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#result` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#result` property.
 
 #### Method: `<Builder> as.models.Activity.Builder.origin(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#origin` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#origin` property.
 
 #### Method: `<Builder> as.models.Activity.Builder.instrument(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#instrument` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#instrument` property.
 
 ### Class: `as.models.Collection > as.models.Object`
 
@@ -965,23 +965,23 @@ The base class for all Activity Streams 2.0 Collection objects. Inherits from `a
 
 #### Property: `as.models.Collection.prototype.totalItems`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#totalItems` property. The value will either be `undefined` or a numeric integer greater than or equal to zero.
+Returns the value of the `https://www.w3.org/ns/activitystreams#totalItems` property. The value will either be `undefined` or a numeric integer greater than or equal to zero.
 
 #### Property: `as.models.Collection.prototype.current`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#current` property. The value will either be `undefined` or a `as.models.Base` instance.
+Returns the value of the `https://www.w3.org/ns/activitystreams#current` property. The value will either be `undefined` or a `as.models.Base` instance.
 
 #### Property: `as.models.Collection.prototype.last`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#last` property. The value will either be `undefined` or a `as.models.Base` instance.
+Returns the value of the `https://www.w3.org/ns/activitystreams#last` property. The value will either be `undefined` or a `as.models.Base` instance.
 
 #### Property: `as.models.Collection.prototype.first`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#first` property. The value will either be `undefined` or a `as.models.Base` instance.
+Returns the value of the `https://www.w3.org/ns/activitystreams#first` property. The value will either be `undefined` or a `as.models.Base` instance.
 
 #### Property: `as.models.Collection.prototype.items`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#items` property as an Iterable of `as.models.Base` instances.
+Returns the value of the `https://www.w3.org/ns/activitystreams#items` property as an Iterable of `as.models.Base` instances.
 
 ### Class: `as.models.Collection.Builder> as.models.Object.Builder`
 
@@ -989,23 +989,23 @@ The base class for all `as.models.Collection` builders. Inherits from `as.models
 
 #### Method: `<Builder> as.models.Collection.Builder.prototype.totalItems(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#totalItems` property. The value must be a numeric integer greater than or equal to 0.
+Sets the value of the `https://www.w3.org/ns/activitystreams#totalItems` property. The value must be a numeric integer greater than or equal to 0.
 
 #### Method: `<Builder> as.models.Collection.Builder.current(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#current` property. The value must either be a URL string or a `as.models.Link` instance.
+Sets the value of the `https://www.w3.org/ns/activitystreams#current` property. The value must either be a URL string or a `as.models.Link` instance.
 
 #### Method: `<Builder> as.models.Collection.Builder.last(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#last` property. The value must either be a URL string or a `as.models.Link` instance.
+Sets the value of the `https://www.w3.org/ns/activitystreams#last` property. The value must either be a URL string or a `as.models.Link` instance.
 
 #### Method: `<Builder> as.models.Collection.Builder.first(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#first` property. The value must either be a URL string or a `as.models.Link` instance.
+Sets the value of the `https://www.w3.org/ns/activitystreams#first` property. The value must either be a URL string or a `as.models.Link` instance.
 
 #### Method: `<Builder> as.models.Collection.Builder.items(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#items` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#items` property.
 
 ### Class: `as.models.OrderedCollection > as.models.Collection`
 
@@ -1021,11 +1021,11 @@ The base class for all `as.models.CollectionPage` instances. Inherits from `as.m
 
 #### Property: `as.models.CollectionPage.prototype.next`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#next` property. The value will either be `undefined` or a `as.models.Base` instance.
+Returns the value of the `https://www.w3.org/ns/activitystreams#next` property. The value will either be `undefined` or a `as.models.Base` instance.
 
 #### Property: `as.models.CollectionPage.prototype.prev`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#prev` property. The value will either be `undefined` or a `as.models.Base` instance.
+Returns the value of the `https://www.w3.org/ns/activitystreams#prev` property. The value will either be `undefined` or a `as.models.Base` instance.
 
 ### Class: `as.models.CollectionPage.Builder > as.models.Collection.Builder`
 
@@ -1033,11 +1033,11 @@ The base class for all `as.models.CollectionPage` builders. Inherits from `as.mo
 
 #### Method: `<Builder> as.models.CollectionPage.Builder.next(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#next` property. The value must either be a URL string or a `as.models.Link` instance.
+Sets the value of the `https://www.w3.org/ns/activitystreams#next` property. The value must either be a URL string or a `as.models.Link` instance.
 
 #### Method: `<Builder> as.models.CollectionPage.Builder.prev(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#prev` property. The value must either be a URL string or a `as.models.Link` instance.
+Sets the value of the `https://www.w3.org/ns/activitystreams#prev` property. The value must either be a URL string or a `as.models.Link` instance.
 
 ### Class: `as.models.OrderedCollectionPage > as.models.CollectionPage, as.models.OrderedCollection`
 
@@ -1045,7 +1045,7 @@ The base class for all `as.models.OrderedCollectionPage` instances. Inherits fro
 
 #### Property: `as.models.OrderedCollectionPage.prototype.startIndex`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#startIndex` property. The value will either be `undefined` or a numeric integer greater than or equal to zero.
+Returns the value of the `https://www.w3.org/ns/activitystreams#startIndex` property. The value will either be `undefined` or a numeric integer greater than or equal to zero.
 
 ### Class: `as.models.OrderedCollectionPage.Builder > as.models.CollectionPage.Builder, as.models.OrderedCollection.Builder`
 
@@ -1053,7 +1053,7 @@ The base class for all `as.models.OrderedCollectionPage` builders. Inherits from
 
 #### Method: `as.models.OrderedCollectionPage.Builder.prototype.startIndex(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#startIndex` property. The value must be a numeric integer greater than or equal to zero.
+Sets the value of the `https://www.w3.org/ns/activitystreams#startIndex` property. The value must be a numeric integer greater than or equal to zero.
 
 ### Class: `as.models.Link > as.models.Base`
 
@@ -1061,35 +1061,35 @@ The base class for all Activity Streams 2.0 Links. Inherits from `as.models.Base
 
 #### Property: `as.models.Link.prototype.href`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#href` property. The value will either be `undefined` or a URL string.
+Returns the value of the `https://www.w3.org/ns/activitystreams#href` property. The value will either be `undefined` or a URL string.
 
 #### Property: `as.models.Link.prototype.rel`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#rel` property. The value will either be `undefined` or an Iterable  of strings.
+Returns the value of the `https://www.w3.org/ns/activitystreams#rel` property. The value will either be `undefined` or an Iterable  of strings.
 
 #### Property: `as.models.Link.prototype.mediaType`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#mediaType` property. The value will either be `undefined` or a MIME Media Type.
+Returns the value of the `https://www.w3.org/ns/activitystreams#mediaType` property. The value will either be `undefined` or a MIME Media Type.
 
 #### Property: `as.models.Link.prototype.name`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#name` property as a `LanguageValue`.
+Returns the value of the `https://www.w3.org/ns/activitystreams#name` property as a `LanguageValue`.
 
 #### Property: `as.models.Link.prototype.hreflang`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#hreflang` property. The value will either be `undefined` or an RFC 5646 Language Tag.
+Returns the value of the `https://www.w3.org/ns/activitystreams#hreflang` property. The value will either be `undefined` or an RFC 5646 Language Tag.
 
 #### Property: `as.models.Link.prototype.height`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#height` property.The value will either be `undefined` or a numeric integer greater than or equal to zero.
+Returns the value of the `https://www.w3.org/ns/activitystreams#height` property.The value will either be `undefined` or a numeric integer greater than or equal to zero.
 
 #### Property: `as.models.Link.prototype.width`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#width` property.The value will either be `undefined` or a numeric integer greater than or equal to zero.
+Returns the value of the `https://www.w3.org/ns/activitystreams#width` property.The value will either be `undefined` or a numeric integer greater than or equal to zero.
 
 #### Property: `as.models.Link.prototype.duration`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#duration` property. The value will either be `undefined, a numeric integer, or an ISO 8601 duration string.
+Returns the value of the `https://www.w3.org/ns/activitystreams#duration` property. The value will either be `undefined, a numeric integer, or an ISO 8601 duration string.
 
 ### Class: `as.models.Link.Builder > as.models.Base.Builder`
 
@@ -1097,15 +1097,15 @@ The base class for all `as.models.Link` builders. Inherits from `as.models.Base.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.href(val)`
 
-Specifies the value of the `http://www.w3.org/ns/activitystreams#href` property. The value must be a URL string.
+Specifies the value of the `https://www.w3.org/ns/activitystreams#href` property. The value must be a URL string.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.rel(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#rel` property;
+Adds a value to the `https://www.w3.org/ns/activitystreams#rel` property;
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.mediaType(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#mediaType` property. The value must be a valid MIME type.
+Sets the value of the `https://www.w3.org/ns/activitystreams#mediaType` property. The value must be a valid MIME type.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.name(val)`
 
@@ -1129,22 +1129,22 @@ as.link()
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.hreflang(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#hreflang` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#hreflang` property.
 The value must be an RFC 5646 Language Tag.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.height(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#height` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#height` property.
 The value is a numeric integer greater than or equal to zero.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.width(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#width` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#width` property.
 The value is a numeric integer greater than or equal to zero.
 
 #### Method: `<Builder> as.models.Link.Builder.prototype.duration(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#duration` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#duration` property.
 The value is either a numeric integer indicate a number of seconds, or an
 ISO 8601 Duration.
 
@@ -1154,28 +1154,28 @@ The base class for all Activity Streams 2.0 Place objects. Inherits from `as.mod
 
 #### Property: `as.models.Place.prototype.accuracy`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#accuracy` property. The value will either be `undefined` or a numeric integer in the range 0 <= n <= 100.
+Returns the value of the `https://www.w3.org/ns/activitystreams#accuracy` property. The value will either be `undefined` or a numeric integer in the range 0 <= n <= 100.
 
 #### Property: `as.models.Place.prototype.altitude`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#altitude` property. The value will be either `undefined` or a numeric float.
+Returns the value of the `https://www.w3.org/ns/activitystreams#altitude` property. The value will be either `undefined` or a numeric float.
 
 #### Property: `as.models.Place.prototype.latitude`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#latitude` property. The value will be either `undefined` or a numeric float in the range -90.0 <= n <= 90.0.
+Returns the value of the `https://www.w3.org/ns/activitystreams#latitude` property. The value will be either `undefined` or a numeric float in the range -90.0 <= n <= 90.0.
 
 #### Property: `as.models.Place.prototype.longitude`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#longitude` property. The value will be either `undefined` or a numeric float in the range -180.0 <= n <= 180.0.
+Returns the value of the `https://www.w3.org/ns/activitystreams#longitude` property. The value will be either `undefined` or a numeric float in the range -180.0 <= n <= 180.0.
 
 #### Property: `as.models.Place.prototype.radius`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#radius` property.
+Returns the value of the `https://www.w3.org/ns/activitystreams#radius` property.
 The value will be either `undefined` or a numeric float greater than or equal to zero.
 
 #### Property: `as.models.Place.prototype.units`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#units` property. The value will be one of: `cm`, `feet`, `inches`, `km`, `m`, `miles`, or any absolute URI.
+Returns the value of the `https://www.w3.org/ns/activitystreams#units` property. The value will be one of: `cm`, `feet`, `inches`, `km`, `m`, `miles`, or any absolute URI.
 
 ### Class: `as.models.Place.Builder > as.models.Object.Builder`
 
@@ -1183,28 +1183,28 @@ The base class for all `as.models.Place` builders. Inherits from `as.models.Obje
 
 #### Method: `as.models.Place.Builder.prototype.accuracy(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#accuracy` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#accuracy` property.
 The value is a numeric integer in the range 0 <= n <= 100
 
 #### Method: `as.models.Place.Builder.prototype.altitude(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#altitude` property. The value is a numeric float.
+Sets the value of the `https://www.w3.org/ns/activitystreams#altitude` property. The value is a numeric float.
 
 #### Method: `as.models.Place.Builder.prototype.latitude(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#latitude` property. The value is a numeric float in the range -90.0 <= n <= 90.0.
+Sets the value of the `https://www.w3.org/ns/activitystreams#latitude` property. The value is a numeric float in the range -90.0 <= n <= 90.0.
 
 #### Method: `as.models.Place.Builder.prototype.longitude(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#longitude` property. The value is a numeric float in the range -180.0 <= n <= 180.0.
+Sets the value of the `https://www.w3.org/ns/activitystreams#longitude` property. The value is a numeric float in the range -180.0 <= n <= 180.0.
 
 #### Method: `as.models.Place.Builder.prototype.radius(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#radius` property. The value is a numeric float greater or equal to `0.0`.
+Sets the value of the `https://www.w3.org/ns/activitystreams#radius` property. The value is a numeric float greater or equal to `0.0`.
 
 #### Method: `as.models.Place.Builder.prototype.units(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#units` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#units` property.
 The value must be one of: `cm`, `feet`, `inches`, `km`, `m`, `miles`, or any absolute URI.
 
 ### Class: `as.models.Profile > as.models.Object`
@@ -1220,7 +1220,7 @@ The base class for all `as.models.Profile` builders. Inherits from
 
 #### Method: `as.models.Profile.Builder.prototype.describes(val)`
 
-Sets the value of the `http://www.w3.org/ns/activitystreams#describes` property.
+Sets the value of the `https://www.w3.org/ns/activitystreams#describes` property.
 
 ### Class: `as.models.Question > as.models.Activity`
 
@@ -1229,12 +1229,12 @@ The base class for all Activity Streams 2.0 Question objects. Inherits from
 
 #### Property: `as.models.Question.prototype.anyOf`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#anyOf` property.
+Returns the value of the `https://www.w3.org/ns/activitystreams#anyOf` property.
 The value will either be `undefined` or an Iterable of `as.models.Base` objects.
 
 #### Property: `as.models.Question.prototype.oneOf`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#oneOf` property.
+Returns the value of the `https://www.w3.org/ns/activitystreams#oneOf` property.
 The value will either be `undefined` or an Iterable of `as.models.Base` objects.
 
 ### Class: `as.models.Question.Builder > as.models.Activity.Builder`
@@ -1244,11 +1244,11 @@ The base class for all `as.models.Question` builders. Inherits from
 
 #### Method: `as.models.Question.Builder.anyOf(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#anyOf` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#anyOf` property.
 
 #### Method: `as.models.Question.Builder.oneOf(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#oneOf` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#oneOf` property.
 
 ### Class: `as.models.Relationship > as.models.Object`
 
@@ -1257,15 +1257,15 @@ from `as.models.Object`.
 
 #### Property: `as.models.Relationship.prototype.subject`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#subject` property. The value will either be `undefined` or an `as.models.Base` object.
+Returns the value of the `https://www.w3.org/ns/activitystreams#subject` property. The value will either be `undefined` or an `as.models.Base` object.
 
 #### Property: `as.models.Relationship.prototype.relationship`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#relationship` property. The value will either be `undefined` or an Iterable  of `as.models.Base` objects.
+Returns the value of the `https://www.w3.org/ns/activitystreams#relationship` property. The value will either be `undefined` or an Iterable  of `as.models.Base` objects.
 
 #### Property: `as.models.Relationship.prototype.object`
 
-Returns the value of the `http://www.w3.org/ns/activitystreams#object` property. The value will either be `undefined` or an Iterable  of `as.models.Base` objects.
+Returns the value of the `https://www.w3.org/ns/activitystreams#object` property. The value will either be `undefined` or an Iterable  of `as.models.Base` objects.
 
 ### Class: `as.models.Relationship.Builder > as.models.Object.Builder`
 
@@ -1277,11 +1277,11 @@ Sets the value of the `http://ww.w3.org/ns/activitystreams#subject` property.
 
 #### Method: `as.models.Relationship.Builder.prototype.relationship(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#relationship` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#relationship` property.
 
 #### Method: `as.models.Relationship.Builder.prototype.object(val)`
 
-Adds a value to the `http://www.w3.org/ns/activitystreams#object` property.
+Adds a value to the `https://www.w3.org/ns/activitystreams#object` property.
 
 ### Class: `as.models.Tombstone > as.models.Object`
 

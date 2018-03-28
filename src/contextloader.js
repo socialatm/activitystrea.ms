@@ -8,7 +8,7 @@ const as_context = require('activitystreams-context');
 const securityContext = require('./jsig');
 
 const jsig_url = 'https://w3id.org/security/v1';
-const as_url_nohash = 'http://www.w3.org/ns/activitystreams';
+const as_url_nohash = 'https://www.w3.org/ns/activitystreams';
 const default_doc_loader = jsonld.documentLoaders.node();
 const _map = Symbol('map');
 

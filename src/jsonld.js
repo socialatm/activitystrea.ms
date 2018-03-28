@@ -11,7 +11,7 @@ const models = require('./models');
 const as = require('vocabs-as');
 const Environment = require('./environment');
 const Loader = require('./contextloader');
-const as_url_nohash = 'http://www.w3.org/ns/activitystreams';
+const as_url_nohash = 'https://www.w3.org/ns/activitystreams';
 
 var warned = false;
 function warn() {

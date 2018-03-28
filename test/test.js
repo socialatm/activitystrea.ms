@@ -83,7 +83,7 @@ describe('Basics...', ()=> {
       assert.equal(e, null);
       assert(typeof(d) === 'object');
       assert(d.hasOwnProperty('@context'));
-      assert.equal(d['@context'], 'http://www.w3.org/ns/activitystreams');
+      assert.equal(d['@context'], 'https://www.w3.org/ns/activitystreams');
       done();
     });
   });
@@ -300,7 +300,7 @@ describe('Basics...', ()=> {
     (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
       'type': 'OrderedCollection',
       totalItems: 1,
@@ -360,7 +360,7 @@ describe('Basics...', ()=> {
     (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
       'type': 'Collection',
       totalItems: 1,
@@ -431,7 +431,7 @@ describe('Basics...', ()=> {
     (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
       'type': 'Activity',
       actor: 'http://example.org/actor',
@@ -473,7 +473,7 @@ describe('Basics...', ()=> {
   it('should have appropriate values for every link property',
     (done)=> {
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
       'type': 'Link',
       href: 'http://example.org',
@@ -533,7 +533,7 @@ describe('Basics...', ()=> {
   it('should have appropriate values for every object property',
      (done)=> {
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
       'type': 'Object',
       attachment: 'http://example.org/attachment',
@@ -728,7 +728,7 @@ describe('Basics...', ()=> {
     (done)=> {
 
       var test = {
-        '@context': 'http://www.w3.org/ns/activitystreams',
+        '@context': 'https://www.w3.org/ns/activitystreams',
         'type': 'Relationship',
         subject: 'http://sally.example.org',
         relationship: 'http://example.org',
@@ -775,7 +775,7 @@ describe('Basics...', ()=> {
     (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'type': 'Question',
       name: 'the question',
       anyOf: [{'id':'urn:answer1'},{'id':'urn:answer2'}]
@@ -817,7 +817,7 @@ describe('Basics...', ()=> {
   it('should have appropriate values for the place object', (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'type': 'Place',
       accuracy: 10,
       altitude: 10,
@@ -866,7 +866,7 @@ describe('Basics...', ()=> {
   it('should have appropriate values for the profile object', (done)=> {
 
     var test = {
-      '@context': 'http://www.w3.org/ns/activitystreams',
+      '@context': 'https://www.w3.org/ns/activitystreams',
       'type': 'Profile',
       describes: 'http://example.org'
     };

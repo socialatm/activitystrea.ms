@@ -6,7 +6,7 @@ const _input = Symbol('input');
 const _origcontext = Symbol('originalContext');
 const _defcontext = Symbol('defaultContext');
 const _loader = Symbol('loader');
-const as_url_nohash = 'http://www.w3.org/ns/activitystreams';
+const as_url_nohash = 'https://www.w3.org/ns/activitystreams';
 
 var default_context = [as_url_nohash];
 
