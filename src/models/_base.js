@@ -405,7 +405,7 @@ class BaseBuilder {
           } else if (is_string(value)) {
             expanded[key].push({'@id': value});
           } else if (typeof value === 'object') {
-            let base = new Base();
+            let base = new BaseBuilder();
             for (let k of Object.keys(value)) {
               let v = value[k];
               if (k === '@id') base.id(v);
@@ -473,7 +473,7 @@ class BaseBuilder {
   template() {
     return this.get().template();
   }
-  
+
   [models.compose](types) {
     if (!types) return;
     if (!Array.isArray(types)) {

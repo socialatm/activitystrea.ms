@@ -1097,4 +1097,31 @@ describe('Extensions...', ()=> {
     });
 
   });
+
+  it("should allow using .set() when the @context is an array", (done)=> {
+    as.activity()
+    .context([
+        'https://www.w3.org/ns/activitystreams',
+        { vcard: 'http://www.w3.org/2006/vcard/ns#' }
+    ])
+    .actor(
+        as.person()
+            .name('Denis Prša')
+            .id('https://github.com/denisprsa')
+    )
+    .object(
+        as.offer()
+            .name('Thank you')
+            .id('https://github.com/jasnell/activitystrea.ms/issues/13#issuecomment-376722358')
+            .set('vcard:given-name', 'Thank')
+    )
+    .name('The offer')
+    .content('Evan offered his thanks to Denis for his bug report')
+    .set({h: 'd'})
+    .published(new Date())
+    .prettyWrite((err, string) => {
+      assert.equal(err, null);
+      done();
+    });
+  })
 });
