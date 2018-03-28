@@ -917,12 +917,21 @@ describe('Basics...', ()=> {
       .liked('https://evanp.example/liked')
       .get();
     assert(doc instanceof as.models.Object);
-    assert.equal(doc.inbox.first, 'https://evanp.example/inbox');
-    assert.equal(doc.outbox.first, 'https://evanp.example/outbox');
-    assert.equal(doc.followers.first, 'https://evanp.example/followers');
-    assert.equal(doc.following.first, 'https://evanp.example/following');
-    assert.equal(doc.liked.first, 'https://evanp.example/liked');
-    done();
+    assert.equal(doc.inbox.first.id, 'https://evanp.example/inbox');
+    assert.equal(doc.outbox.first.id, 'https://evanp.example/outbox');
+    assert.equal(doc.followers.first.id, 'https://evanp.example/followers');
+    assert.equal(doc.following.first.id, 'https://evanp.example/following');
+    assert.equal(doc.liked.first.id, 'https://evanp.example/liked');
+    doc.export((e, d)=> {
+      assert.equal(e, null);
+      assert.equal(typeof(d), "object");
+      assert.equal(d.inbox, 'https://evanp.example/inbox');
+      assert.equal(d.outbox, 'https://evanp.example/outbox');
+      assert.equal(d.followers, 'https://evanp.example/followers');
+      assert.equal(d.following, 'https://evanp.example/following');
+      assert.equal(d.liked, 'https://evanp.example/liked');
+      done();
+    });
   });
 });
 

@@ -7,6 +7,7 @@ const owl = require('vocabs-owl');
 const rdf = require('vocabs-rdf');
 const rdfs = require('vocabs-rdfs');
 const asx = require('vocabs-asx');
+const ldp = require('vocabs-ldp');
 
 const functionalObject = [owl.ObjectProperty, owl.FunctionalProperty],
   functionalDatatype = [owl.DatatypeProperty, owl.FunctionalProperty],
@@ -615,7 +616,31 @@ graph.add({
   predicate: rdfs.subPropertyOf,
   object: as.attributedTo
 });
-
+graph.add({
+  subject: ldp.inbox,
+  predicate: rdf.type,
+  object: owl.ObjectProperty
+});
+graph.add({
+  subject: as.outbox,
+  predicate: rdf.type,
+  object: owl.ObjectProperty
+});
+graph.add({
+  subject: as.followers,
+  predicate: rdf.type,
+  object: owl.ObjectProperty
+});
+graph.add({
+  subject: as.following,
+  predicate: rdf.type,
+  object: owl.ObjectProperty
+});
+graph.add({
+  subject: as.liked,
+  predicate: rdf.type,
+  object: owl.ObjectProperty
+});
 module.exports = new Reasoner(graph);
 
 module.exports.Graph = Reasoner.Graph;
