@@ -41,7 +41,7 @@ Which produces the output:
 
 ```json
 {
-  "@context": "http://www.w3.org/ns/activitystreams#",
+  "@context": "http://www.w3.org/ns/activitystreams",
   "@type": "Object",
   "contentMap": {
     "en": "bar",
@@ -66,7 +66,7 @@ as.create().
 Which produces the output:
 ```json
 {
-  "@context": "http://www.w3.org/ns/activitystreams#",
+  "@context": "http://www.w3.org/ns/activitystreams",
   "@type": "Create",
   "actor": "acct:sally@example.org",
   "object": "http://www.example.org/post"
@@ -481,7 +481,7 @@ Imports the specified JavaScript object `obj`, performing JSON-LD expansion as n
 
 ```javascript
 var obj = {
-  '@context': 'http://www.w3.org/ns/activitystreams#',
+  '@context': 'http://www.w3.org/ns/activitystreams',
   '@type': 'Person',
   name: 'Joe'
 };

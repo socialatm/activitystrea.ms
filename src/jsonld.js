@@ -11,6 +11,7 @@ const models = require('./models');
 const as = require('vocabs-as');
 const Environment = require('./environment');
 const Loader = require('./contextloader');
+const as_url_nohash = 'http://www.w3.org/ns/activitystreams';
 
 var warned = false;
 function warn() {
@@ -38,7 +39,7 @@ function getContext(options) {
       ctx.push(jsig.SECURITY_CONTEXT_URL);
     if (options && options.additional_context)
       ctx.push(options.additional_context);
-    ctx.push(as.ns);
+    ctx.push(as_url_nohash);
     return {'@context': ctx.length > 1 ? ctx : ctx[0]};
   }
 }

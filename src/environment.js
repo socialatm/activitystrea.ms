@@ -6,8 +6,9 @@ const _input = Symbol('input');
 const _origcontext = Symbol('originalContext');
 const _defcontext = Symbol('defaultContext');
 const _loader = Symbol('loader');
+const as_url_nohash = 'http://www.w3.org/ns/activitystreams';
 
-var default_context = [as.ns];
+var default_context = [as_url_nohash];
 
 class Environment {
   constructor(input) {
@@ -16,25 +17,25 @@ class Environment {
     this[_defcontext] = [].concat(default_context);
     this[_loader] = Loader.defaultInstance;
   }
-  
+
   get input() {
     return this[_input];
   }
-  
+
   get originalContext() {
     return this[_origcontext];
   }
-  
+
   get loader() {
     return this[_loader];
   }
-  
+
   set loader(loader) {
     if (!(loader instanceof Loader))
       throw new TypeError('value must be an instance of Loader');
     this[_loader] = loader;
   }
-  
+
   addAssumedContext() {
     if (arguments.length > 0) {
       const contexts = new Array(arguments.length);
@@ -44,22 +45,22 @@ class Environment {
     }
     return this;
   }
-  
+
   setAssumedContext() {
     const contexts = new Array(arguments.length);
     var hasAs = false;
     if (arguments.length > 0) {
       for (var n = 0; n < arguments.length; n++) {
         contexts[n] = arguments[n];
-        if (contexts[n] === as.ns && !hasNs)
+        if ((contexts[n] === as.ns || contexts[n] === as_url_nohash) && !hasNs)
           hasAs = true;
       }
     }
-    if (!hasNs) contexts.push(as.ns);
+    if (!hasNs) contexts.push(as_url_nohash);
     this[_defcontext] = contexts;
     return this;
   }
-  
+
   applyAssumedContext(input) {
     if (!input['@context'])
       input['@context'] = this[_defcontext];
@@ -77,10 +78,10 @@ class Environment {
     var hasAs = false;
     for (var n = 0; n < arguments.length; n++) {
       contexts[n] = arguments[n];
-      if (contexts[n] === as.ns && !hasNs)
+      if ((contexts[n] === as.ns || contexts[n] === as_url_nohash) && !hasNs)
         hasAs = true;
     }
-    if (!hasAs) contexts.push(as.ns);
+    if (!hasAs) contexts.push(as_url_nohash);
     default_context = contexts;
   }
 }
