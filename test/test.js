@@ -1010,11 +1010,11 @@ describe('Extensions...', ()=> {
       ['leftClosed', interval.LeftClosedInterval],
       ['rightClosed', interval.RightClosedInterval],
     ].forEach((key)=>{
-      var obj = as.interval[key[0]]().
-        upper(1).
-        lower(0).
-        step(1).
-        get();
+      var obj = as.interval[key[0]]()
+      .upper(1)
+      .lower(0)
+      .step(1)
+      .get();
       assert(obj instanceof as.models.Object);
       assert.equal(obj.type,key[1]);
       assert.equal(obj.upper, 1);
