@@ -87,7 +87,7 @@ describe('Basics...', () => {
     });
   });
 
-  it('should create a basic activity object', (done)=> {
+  it('should create a basic activity object', (done) => {
     let activity = as.activity().actor('http://example').get();
     assert(activity instanceof models.Object);
     assert(activity.actor);
@@ -96,26 +96,26 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should create a basic collection object', (done)=> {
+  it('should create a basic collection object', (done) => {
     let collection = as.collection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
   });
 
-  it('should create a basic ordered collection object', (done)=> {
+  it('should create a basic ordered collection object', (done) => {
     let collection = as.orderedCollection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
   });
 
-  it('should create a basic link object', (done)=> {
+  it('should create a basic link object', (done) => {
     assert(as.link().get() instanceof models.Link);
     done();
   });
 
-  it('should create activities with an appropriate type', (done)=> {
+  it('should create activities with an appropriate type', (done) => {
     [['accept',asv.Accept],
      ['tentativeAccept',asv.TentativeAccept],
      ['add',asv.Add],
@@ -143,7 +143,7 @@ describe('Basics...', () => {
      ['block',asv.Block],
      ['flag',asv.Flag],
      ['dislike',asv.Dislike]
-   ].forEach((key)=> {
+   ].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Object);
       assert.equal(obj.type,key[1]);
@@ -151,7 +151,7 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should create objects with an appropriate type', (done)=> {
+  it('should create objects with an appropriate type', (done) => {
     [
      ['application',asv.Application],
      ['group',asv.Group],
@@ -170,7 +170,7 @@ describe('Basics...', () => {
      ['question',asv.Question],
      ['event',asv.Event],
      ['place',asv.Place]
-   ].forEach((key)=> {
+   ].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Object);
       assert.equal(obj.type,key[1]);
@@ -178,8 +178,8 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should create link objects with an appropriate type', (done)=> {
-    [['mention',asv.Mention]].forEach((key)=> {
+  it('should create link objects with an appropriate type', (done) => {
+    [['mention',asv.Mention]].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Link);
       assert.equal(obj.type,key[1]);
@@ -187,7 +187,7 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should create a complex object', (done)=> {
+  it('should create a complex object', (done) => {
     // Test complex creation
     var obj =
       as.create()
@@ -207,7 +207,7 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should import from JSON without errors', (done)=> {
+  it('should import from JSON without errors', (done) => {
     as.import({
       'type': 'Like',
       nameMap: {
@@ -221,7 +221,7 @@ describe('Basics...', () => {
         'type': 'http://example.org/Table',
         name: 'Table'
       }
-    }, (err, doc)=> {
+    }, (err, doc) => {
       assert.equal(null, err);
       assert.equal(asv.Like, doc.type);
       assert.equal(doc.name, 'foo');
@@ -232,7 +232,7 @@ describe('Basics...', () => {
     });
   });
 
-  it('should handle languages properly', (done)=> {
+  it('should handle languages properly', (done) => {
     var LanguageValue = require('../src/models/_languagevalue');
     var B = new LanguageValue.Builder();
     B.set('en-US', 'bar');
@@ -249,12 +249,12 @@ describe('Basics...', () => {
     done();
   });
 
-  it('should roundtrip the RDF properly', (done)=> {
+  it('should roundtrip the RDF properly', (done) => {
     var obj = as.object().name('test').get();
-    obj.toRDF((err,doc)=> {
+    obj.toRDF((err,doc) => {
       assert.equal(err, undefined);
       assert(doc);
-      as.importFromRDF(doc, (err,doc)=> {
+      as.importFromRDF(doc, (err,doc )=> {
         assert.equal(err, undefined);
         assert.equal(doc.name.get(), 'test');
         done();
@@ -262,9 +262,9 @@ describe('Basics...', () => {
     });
   });
 
-  it('should import an object with just an id', (done)=> {
+  it('should import an object with just an id', (done) => {
     var test = {'id': 'http://example.org'};
-    as.import(test, (err,doc)=> {
+    as.import(test, (err,doc) => {
       assert.equal(err,undefined);
       assert.equal(doc.id, 'http://example.org');
       done();
@@ -272,7 +272,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every orderedcollection property',
-    (done)=> {
+    (done) => {
 
     var doc = as.orderedCollection()
       .id('http://example.org')
@@ -296,7 +296,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every orderedcollection property',
-    (done)=> {
+    (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -312,7 +312,7 @@ describe('Basics...', () => {
       ]
     };
 
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.totalItems, 1);
