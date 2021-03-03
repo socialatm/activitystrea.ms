@@ -188,7 +188,7 @@ class Base {
    **/
   has(key) {
     key = as[key] || key;
-    let ret = this[_expanded][key];
+    const ret = this[_expanded][key];
     return ret && (ret.length > 0 || typeof ret === 'boolean');
   }
 
@@ -198,13 +198,13 @@ class Base {
   get(key) {
     key = as[key] || key;
     const nodekey = reasoner.node(key);
-    let res = this[_expanded][key] || [];
+    const res = this[_expanded][key] || [];
     if (res.length === 0) return;
     if (nodekey.is(asx.LanguageProperty)) {
-      let lvb = new LanguageValue.Builder();
+      const lvb = new LanguageValue.Builder();
       for (var n = 0; n < res.length; n++) {
-        let item = res[n];
-        let language = item['@language'] || LanguageValue.SYSLANG;
+        const item = res[n];
+        const language = item['@language'] || LanguageValue.SYSLANG;
         let value = item['@value'];
         lvb.set(language, value);
       }
@@ -233,7 +233,7 @@ class Base {
       options.origContext =
         this[kEnvironment].origContext;
     }
-    let handler = options.handler || jsonld.compact;
+    const handler = options.handler || jsonld.compact;
     handler(
       this[_expanded],
       options,
@@ -305,9 +305,9 @@ class Base {
   }
 
   template() {
-    let Builder = this[_builder];
-    let type = this.type;
-    let exp = this[_expanded];
+    const Builder = this[_builder];
+    const type = this.type;
+    const exp = this[_expanded];
     let tmpl = {};
     for (let key of Object.keys(exp)) {
       let value = exp[key];
@@ -325,7 +325,7 @@ class Base {
   }
 
   * [Symbol.iterator]() {
-      for (let key of Object.keys(this[_expanded])) {
+      for (const key of Object.keys(this[_expanded])) {
           yield key;
       }
   }
