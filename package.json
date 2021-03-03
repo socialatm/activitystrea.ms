@@ -38,6 +38,6 @@
   },
   "main": "./src/activitystreams.js",
   "engines": {
-    "node": ">=4.0.0"
+    "node": ">=14.15.4"
   }
 }
