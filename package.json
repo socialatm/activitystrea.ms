@@ -33,7 +33,7 @@
     "vocabs-xsd": "^0.11.1"
   },
   "devDependencies": {
-    "mocha": "^5.2.0",
+    "mocha": "^6.2.2",
     "through2": "^3.0.2"
   },
   "main": "./src/activitystreams.js",
