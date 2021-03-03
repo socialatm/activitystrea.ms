@@ -41,7 +41,7 @@ function convert(item) {
   let type = item['@type'];
   let value = item['@value'];
   if (type) {
-    let node = reasoner.node(type);
+    const node = reasoner.node(type);
     if (node.is(asx.Number))
       value = Number(value);
     else if (node.is(xsd.duration))
@@ -60,11 +60,11 @@ class ValueIterator {
     this[kEnvironment] = environment;
   }
   *[Symbol.iterator] () {
-    for (let item of this[_items]) {
+    for (const item of this[_items]) {
       if (is_literal(item)) {
         yield convert(item);
       } else if (item['@list']) {
-        for (let litem of item['@list']) {
+        for (const litem of item['@list']) {
           yield is_literal(litem) ?
             convert(litem) :
             models.wrap_object(litem, this[kEnvironment]);
@@ -113,9 +113,9 @@ class BaseReader extends Readable {
   }
   _read() {
     if (this[_done]) return;
-    let objectmode = this[_options].objectMode;
+    const objectmode = this[_options].objectMode;
     this[_done] = true;
-    let method =
+    const method =
       objectmode ?
         this[_base].export :
         this[_base].write;
@@ -132,17 +132,17 @@ function _compose(thing, types, base) {
   if (!types) return;
   if (!Array.isArray(types)) types = [types];
   thing[_includes] = thing[_includes] || new Map();
-  for (let type of types) {
+  for (const type of types) {
     if (type) {
       if (thing[_includes].get(type)) continue;
       if (type[_includes]) {
-        for (let include of type[_includes]) {
+        for (const include of type[_includes]) {
           if (!(include instanceof base))
             _compose(thing, include, base);
         }
       }
-      let props = {};
-      for (let name of Object.getOwnPropertyNames(type)) {
+      const props = {};
+      for (const name of Object.getOwnPropertyNames(type)) {
         if (name !== 'Builder')
           props[name] = Object.getOwnPropertyDescriptor(type, name);
       }
@@ -177,7 +177,7 @@ class Base {
    * Get the @type(s) of this object
    **/
   get type() {
-    let types = this[_expanded]['@type'];
+    const types = this[_expanded]['@type'];
     return !types || types.length === 0 ? undefined :
            types.length === 1 ? types[0] :
            types;
@@ -205,7 +205,7 @@ class Base {
       for (var n = 0; n < res.length; n++) {
         const item = res[n];
         const language = item['@language'] || LanguageValue.SYSLANG;
-        let value = item['@value'];
+        const value = item['@value'];
         lvb.set(language, value);
       }
       return lvb.get();
@@ -308,15 +308,15 @@ class Base {
     const Builder = this[_builder];
     const type = this.type;
     const exp = this[_expanded];
-    let tmpl = {};
-    for (let key of Object.keys(exp)) {
+    const tmpl = {};
+    for (const key of Object.keys(exp)) {
       let value = exp[key];
       if (Array.isArray(value))
         value = [].concat(value);
       tmpl[key] = value;
     }
     return () => {
-      let bld = new Builder(type);
+      const bld = new Builder(type);
       bld[_expanded] = bld[_base][_expanded] = Object.create(tmpl);
       models.compose_builder(bld, type);
       models.compose_base(bld[_base], type);
@@ -405,7 +405,7 @@ class BaseBuilder {
           } else if (is_string(value)) {
             expanded[key].push({'@id': value});
           } else if (typeof value === 'object') {
-            let base = new BaseBuilder();
+            const base = new BaseBuilder();
             for (const k of Object.keys(value)) {
               const v = value[k];
               if (k === '@id') base.id(v);
