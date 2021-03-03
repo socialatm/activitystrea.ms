@@ -333,9 +333,7 @@ class Base {
   [models.compose](types) {
     if (!types) return;
     if (!Array.isArray(types)) {
-      if (arguments.length > 1) {
-        types = Array.prototype.slice.call(arguments);
-      } else types = [types];
+      types = (arguments.length > 1)? Array.prototype.slice.call(arguments) : [types];
     }
     _compose(this, types, Base);
   }
@@ -477,9 +475,7 @@ class BaseBuilder {
   [models.compose](types) {
     if (!types) return;
     if (!Array.isArray(types)) {
-      if (arguments.length > 1) {
-        types = Array.prototype.slice.call(arguments);
-      } else types = [types];
+      types = (arguments.length > 1)? Array.prototype.slice.call(arguments) : [types];
     }
     _compose(this, types, Base.Builder);
   }
