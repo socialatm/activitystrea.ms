@@ -5,7 +5,7 @@ const as = require('./activitystreams');
 
 class AS2Writer extends Writable {
   constructor(req) {
-    super({objectMode:true});
+    super({objectMode: true});
     this.req = req;
   }
 

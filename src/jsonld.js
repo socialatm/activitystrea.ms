@@ -1,7 +1,7 @@
 'use strict';
 
 const jsonld = require('jsonld')();
-const jsig = require('jsonld-signatures')({inject:{jsonld:jsonld}});
+const jsig = require('jsonld-signatures')({inject: {jsonld:jsonld}});
 const checkCallback = require('./utils').checkCallback;
 const as_context = require('activitystreams-context');
 const ext_context = require('./extcontext');
@@ -52,7 +52,7 @@ class JsonLD {
     checkCallback(callback);
     jsonld.normalize(
       expanded,
-      {format:'application/nquads'},
+      {format: 'application/nquads'},
       (err,doc)=> {
         if (err) return callback(err);
         callback(null,doc);
@@ -118,7 +118,7 @@ class JsonLD {
 
   static importFromRDF(input, callback) {
     checkCallback(callback);
-    jsonld.fromRDF(input, {format:'application/nquads'},
+    jsonld.fromRDF(input, {format: 'application/nquads'},
     (err, expanded)=> {
       if (err) return callback(err);
       let base = models.wrap_object(expanded[0]);
