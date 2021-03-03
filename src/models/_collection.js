@@ -16,7 +16,7 @@ function isIterable(i) {
 
 const Collection = composedType(undefined, {
   get totalItems() {
-    let ret = range(0, Infinity, this.get(as.totalItems));
+    const ret = range(0, Infinity, this.get(as.totalItems));
     Object.defineProperty(this, 'totalItems', {
       enumerable: true,
       configurable: false,
