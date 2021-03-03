@@ -778,7 +778,7 @@ describe('Basics...', ()=> {
       '@context': 'https://www.w3.org/ns/activitystreams',
       'type': 'Question',
       name: 'the question',
-      anyOf: [{'id':'urn:answer1'},{'id':'urn:answer2'}]
+      anyOf: [{'id': 'urn:answer1'},{'id': 'urn:answer2'}]
     };
 
     as.import(test, (err, doc)=> {
@@ -893,7 +893,7 @@ describe('Basics...', ()=> {
   });
 
   it('should use the default context', (done)=> {
-    var test = {'id':'urn:test', name: 'test'};
+    var test = {'id': 'urn:test', name: 'test'};
     as.import(test, (err,doc)=> {
       assert.equal(err, undefined);
       assert.equal(doc.id, 'urn:test');
@@ -1088,8 +1088,8 @@ describe('Extensions...', ()=> {
 
     var options = {
       sign: {
-        privateKeyPem:testPrivateKeyPem,
-        creator:testPublicKeyUrl
+        privateKeyPem: testPrivateKeyPem,
+        creator: testPublicKeyUrl
       }
     };
 
