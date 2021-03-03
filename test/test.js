@@ -88,7 +88,7 @@ describe('Basics...', () => {
   });
 
   it('should create a basic activity object', (done) => {
-    let activity = as.activity().actor('http://example').get();
+    const activity = as.activity().actor('http://example').get();
     assert(activity instanceof models.Object);
     assert(activity.actor);
     assert(activity.actor.first);
@@ -97,14 +97,14 @@ describe('Basics...', () => {
   });
 
   it('should create a basic collection object', (done) => {
-    let collection = as.collection().totalItems(1).get();
+    const collection = as.collection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
   });
 
   it('should create a basic ordered collection object', (done) => {
-    let collection = as.orderedCollection().totalItems(1).get();
+    const collection = as.orderedCollection().totalItems(1).get();
     assert(collection instanceof models.Object);
     assert(collection.totalItems, 1);
     done();
@@ -225,7 +225,7 @@ describe('Basics...', () => {
       assert.equal(null, err);
       assert.equal(asv.Like, doc.type);
       assert.equal(doc.name, 'foo');
-      let actor = doc.actor.first;
+      const actor = doc.actor.first;
       assert.equal(asv.Person, actor.type);
       assert.equal(actor.name, 'Joe');
       done();
@@ -902,7 +902,7 @@ describe('Basics...', () => {
   });
 
   it('Nothing in as vocab should be undefined', (done) => {
-    let keys = Object.keys(asv).filter((item) => {return !(asv[item]);});
+    const keys = Object.keys(asv).filter((item) => {return !(asv[item]);});
     assert.equal(0, keys.length);
     done();
   });
