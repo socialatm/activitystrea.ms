@@ -62,7 +62,7 @@ exports.init = function(models, reasoner, context) {
 
   models.use(interval_recognizer);
 
-  let graph = new reasoner.Graph();
+  const graph = new reasoner.Graph();
   [
     [interval.Interval, as.Object],
     [interval.OpenInterval, interval.Interval],
@@ -81,7 +81,7 @@ exports.init = function(models, reasoner, context) {
     });
   });
 
-  let functionalDatatype = [
+  const functionalDatatype = [
         owl.DatatypeProperty,
         owl.FunctionalProperty
       ],
