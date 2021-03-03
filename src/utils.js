@@ -57,7 +57,7 @@ class Utils {
 
   static set_date_val(key, val) {
     Utils.throwif(!Utils.is_date(val), `${key} must be a date`);
-    let fmt = moment.isMoment(val) ? val.format() : val.toISOString();
+    const fmt = moment.isMoment(val) ? val.format() : val.toISOString();
     this.set(key, fmt,{type: xsd.dateTime});
   }
 

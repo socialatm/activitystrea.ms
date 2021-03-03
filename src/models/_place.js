@@ -27,7 +27,7 @@ const Place = composedType(undefined, {
     return isNaN(ret) ? undefined : ret;
   },
   get latitude() {
-    let ret = range(-90.0, 90.0, this.get(as.latitude));
+    const ret = range(-90.0, 90.0, this.get(as.latitude));
     Object.defineProperty(this, 'latitude', {
       enumerable: true,
       configurable: false,

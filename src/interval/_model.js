@@ -12,7 +12,7 @@ const is_date = utils.is_date;
 const is_boolean = utils.is_boolean;
 
 function _set(target, key, val) {
-  let options = {};
+  const options = {};
   if (is_primitive(val)) {
     if (is_string(val))
       options.type = xsd.string;

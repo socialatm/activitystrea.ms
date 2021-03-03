@@ -38,7 +38,7 @@ function is_iterable(item) {
 }
 
 function convert(item) {
-  let type = item['@type'];
+  const type = item['@type'];
   let value = item['@value'];
   if (type) {
     const node = reasoner.node(type);

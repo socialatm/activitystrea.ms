@@ -35,7 +35,7 @@ class Loader {
   makeDocLoader() {
     return (url, cb) => {
       checkCallback(cb);
-      let context = this[_map][url];
+      const context = this[_map][url];
       if (context) {
         return cb(null, {
           contextUrl: null,
