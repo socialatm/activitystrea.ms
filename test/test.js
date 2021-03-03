@@ -771,7 +771,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for the question object',
-    (done)            => {
+    (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
