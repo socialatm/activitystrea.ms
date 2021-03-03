@@ -65,11 +65,11 @@ describe('Basics...', () => {
       .published(now)
       .updated(now)
       .get();
-    object.export((e,d) => {
-      assert.equal(e, null);
-      as.import(d, (e,d) => {
-        assert.equal(e,undefined);
-        testFunctionalProperties(d);
+    object.export((err, doc) => {
+      assert.equal(err, null);
+      as.import(doc, (err, doc) => {
+        assert.equal(err, undefined);
+        testFunctionalProperties(doc);
         done();
       });
     });
