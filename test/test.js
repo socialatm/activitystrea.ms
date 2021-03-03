@@ -794,7 +794,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for the question object',
-    (done)=> {
+    (done) => {
 
     var doc = as.question()
       .name('the question')
@@ -813,7 +813,7 @@ describe('Basics...', () => {
 
   });
 
-  it('should have appropriate values for the place object', (done)=> {
+  it('should have appropriate values for the place object', (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -826,7 +826,7 @@ describe('Basics...', () => {
       units: 'm'
     };
 
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.accuracy, 10);
@@ -840,7 +840,7 @@ describe('Basics...', () => {
 
   });
 
-  it('should have appropriate values for the place object', (done)=> {
+  it('should have appropriate values for the place object', (done) => {
 
     var doc = as.place()
       .accuracy(10)
@@ -862,7 +862,7 @@ describe('Basics...', () => {
 
   });
 
-  it('should have appropriate values for the profile object', (done)=> {
+  it('should have appropriate values for the profile object', (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -870,7 +870,7 @@ describe('Basics...', () => {
       describes: 'http://example.org'
     };
 
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.describes.id, 'http://example.org');
@@ -879,7 +879,7 @@ describe('Basics...', () => {
 
   });
 
-  it('should have appropriate values for the profile object', (done)=> {
+  it('should have appropriate values for the profile object', (done) => {
 
     var doc = as.profile()
       .describes('http://example.org')
@@ -891,9 +891,9 @@ describe('Basics...', () => {
 
   });
 
-  it('should use the default context', (done)=> {
+  it('should use the default context', (done) => {
     var test = {'id': 'urn:test', name: 'test'};
-    as.import(test, (err,doc)=> {
+    as.import(test, (err,doc) => {
       assert.equal(err, undefined);
       assert.equal(doc.id, 'urn:test');
       assert.equal(doc.name.get(), 'test');
@@ -901,13 +901,13 @@ describe('Basics...', () => {
     });
   });
 
-  it('Nothing in as vocab should be undefined', (done)=> {
-    let keys = Object.keys(asv).filter((item)=>{return !(asv[item]);});
+  it('Nothing in as vocab should be undefined', (done) => {
+    let keys = Object.keys(asv).filter((item) => {return !(asv[item]);});
     assert.equal(0, keys.length);
     done();
   });
 
-  it('should have appropriate values for the ActivityPub collections', (done)=> {
+  it('should have appropriate values for the ActivityPub collections', (done) => {
     var doc = as.object()
       .inbox('https://evanp.example/inbox')
       .outbox('https://evanp.example/outbox')
@@ -921,14 +921,14 @@ describe('Basics...', () => {
     assert.equal(doc.followers.first.id, 'https://evanp.example/followers');
     assert.equal(doc.following.first.id, 'https://evanp.example/following');
     assert.equal(doc.liked.first.id, 'https://evanp.example/liked');
-    doc.export((e, d)=> {
-      assert.equal(e, null);
-      assert.equal(typeof(d), "object");
-      assert.equal(d.inbox, 'https://evanp.example/inbox');
-      assert.equal(d.outbox, 'https://evanp.example/outbox');
-      assert.equal(d.followers, 'https://evanp.example/followers');
-      assert.equal(d.following, 'https://evanp.example/following');
-      assert.equal(d.liked, 'https://evanp.example/liked');
+    doc.export((err, doc)=> {
+      assert.equal(err, null);
+      assert.equal(typeof(doc), "object");
+      assert.equal(doc.inbox, 'https://evanp.example/inbox');
+      assert.equal(doc.outbox, 'https://evanp.example/outbox');
+      assert.equal(doc.followers, 'https://evanp.example/followers');
+      assert.equal(doc.following, 'https://evanp.example/following');
+      assert.equal(doc.liked, 'https://evanp.example/liked');
       done();
     });
   });
