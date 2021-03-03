@@ -254,7 +254,7 @@ describe('Basics...', () => {
     obj.toRDF((err,doc) => {
       assert.equal(err, undefined);
       assert(doc);
-      as.importFromRDF(doc, (err,doc )=> {
+      as.importFromRDF(doc, (err,doc ) => {
         assert.equal(err, undefined);
         assert.equal(doc.name.get(), 'test');
         done();
@@ -921,7 +921,7 @@ describe('Basics...', () => {
     assert.equal(doc.followers.first.id, 'https://evanp.example/followers');
     assert.equal(doc.following.first.id, 'https://evanp.example/following');
     assert.equal(doc.liked.first.id, 'https://evanp.example/liked');
-    doc.export((err, doc)=> {
+    doc.export((err, doc) => {
       assert.equal(err, null);
       assert.equal(typeof(doc), "object");
       assert.equal(doc.inbox, 'https://evanp.example/inbox');
@@ -934,9 +934,9 @@ describe('Basics...', () => {
   });
 });
 
-describe('Streaming...', ()=> {
+describe('Streaming...', () => {
 
-  it('Should read and parse from the stream', (done)=> {
+  it('Should read and parse from the stream', (done) => {
     var fs = require('fs');
     var AS2Stream = as.Stream;
     var path = require('path');
@@ -944,7 +944,7 @@ describe('Streaming...', ()=> {
 
     fs.createReadStream(path.resolve(__dirname,'test.json'))
       .pipe(new AS2Stream())
-      .pipe(through.obj((chunk,encoding,callback)=> {
+      .pipe(through.obj((chunk,encoding,callback) => {
         assert(chunk);
         assert(chunk.type);
         assert.equal(chunk.type, asv.Person);
@@ -953,13 +953,13 @@ describe('Streaming...', ()=> {
       }));
   });
 
-  it('Should write to the stream', (done)=> {
+  it('Should write to the stream', (done) => {
     var AS2Stream = as.Stream;
     var through = require('through2');
     var obj = as.object().name('test').get();
     obj.stream()
       .pipe(new AS2Stream())
-      .pipe(through.obj((chunk,encoding,callback)=> {
+      .pipe(through.obj((chunk,encoding,callback) => {
         assert(chunk);
         assert(chunk.type);
         assert.equal(chunk.name.valueOf(), 'test');
@@ -968,8 +968,8 @@ describe('Streaming...', ()=> {
   });
 });
 
-describe('Templates...', ()=> {
-  it('Should use one object as a template for another', (done)=> {
+describe('Templates...', () => {
+  it('Should use one object as a template for another', (done) => {
     var tmpl = as.like().actor(as.person().name('Joe')).template();
     var like = tmpl().object('http://example.org/foo').get();
     assert(like.actor);
@@ -989,8 +989,8 @@ describe('Templates...', ()=> {
 
 });
 
-describe('Extensions...', ()=> {
-  it('should initialize the Interval and Social Extensions', (done)=> {
+describe('Extensions...', () => {
+  it('should initialize the Interval and Social Extensions', (done) => {
     as.use(as.interval);
     as.use(as.social);
     assert.equal(require('../src/extcontext.js').get().length, 2);
@@ -998,7 +998,7 @@ describe('Extensions...', ()=> {
   });
 
   it('should create interval objects with appropriate type and values',
-  (done)=> {
+  (done) => {
     [
       ['open', interval.OpenInterval],
       ['closed', interval.ClosedInterval],
@@ -1008,7 +1008,7 @@ describe('Extensions...', ()=> {
       ['rightOpen', interval.RightOpenInterval],
       ['leftClosed', interval.LeftClosedInterval],
       ['rightClosed', interval.RightClosedInterval],
-    ].forEach((key)=>{
+    ].forEach((key) => {
       var obj = as.interval[key[0]]()
       .upper(1)
       .lower(0)
@@ -1023,7 +1023,7 @@ describe('Extensions...', ()=> {
     done();
   });
 
-  it('should create population objects with appropriate type', (done)=> {
+  it('should create population objects with appropriate type', (done) => {
     [
       ['population', social.Population],
       ['everyone', social.Everyone],
@@ -1037,7 +1037,7 @@ describe('Extensions...', ()=> {
       ['any', social.Any],
       ['none', social.None],
       ['compoundPopulation', social.CompoundPopulation]
-    ].forEach((key)=> {
+    ].forEach((key) => {
       var obj = as.social[key[0]]().get();
       assert(obj instanceof as.models.Object);
       assert.equal(obj.type, key[1]);
@@ -1045,7 +1045,7 @@ describe('Extensions...', ()=> {
     done();
   });
 
-  it('should create a signed entry and verify it', (done)=> {
+  it('should create a signed entry and verify it', (done) => {
 
     var testPublicKeyUrl = 'https://example.com/i/alice/keys/1';
     var testPublicKeyPem =
@@ -1092,12 +1092,12 @@ describe('Extensions...', ()=> {
       }
     };
 
-    obj.prettyWrite(options, (err,doc)=> {
+    obj.prettyWrite(options, (err,doc) => {
       assert.equal(err, undefined);
       as.verify(doc, {
         publicKey: testPublicKey,
         publicKeyOwner: testPublicKeyOwner,
-      }, (err,verified)=> {
+      }, (err,verified) => {
         assert.equal(err, undefined);
         assert(verified);
         done();
@@ -1106,7 +1106,7 @@ describe('Extensions...', ()=> {
 
   });
 
-  it("should allow using .set() when the @context is an array", (done)=> {
+  it("should allow using .set() when the @context is an array", (done) => {
     as.activity()
     .context([
         'https://www.w3.org/ns/activitystreams',
