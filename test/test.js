@@ -958,12 +958,12 @@ describe('Streaming...', ()=> {
     var AS2Stream = as.Stream;
     var through = require('through2');
     var obj = as.object().name('test').get();
-    obj.stream({objectMode:true})
+    obj.stream()
       .pipe(new AS2Stream())
       .pipe(through.obj((chunk,encoding,callback)=> {
         assert(chunk);
         assert(chunk.type);
-        assert.equal(chunk.name.valueOf(), 'testing');
+        assert.equal(chunk.name.valueOf(), 'test');
       }));
     done();
   });
