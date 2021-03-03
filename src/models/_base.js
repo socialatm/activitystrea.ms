@@ -49,7 +49,7 @@ function convert(item) {
     else if (node.is(asx.Date))
       value = moment(value);
     else if (node.is(asx.Boolean))
-      value = value != 'false';
+      value = value !== 'false';
   }
   return value;
 }
@@ -399,7 +399,7 @@ class BaseBuilder {
       for (const value of val) {
         if (nodekey.is(owl.ObjectProperty) ||
             value instanceof Base ||
-            key == '@list') {
+            key === '@list') {
           if (value instanceof Base) {
             expanded[key].push(value[_expanded]);
           } else if (is_string(value)) {

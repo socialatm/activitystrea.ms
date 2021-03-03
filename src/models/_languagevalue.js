@@ -14,7 +14,7 @@ class LanguageValue {
       return this[_map].get(checktag.toString());
     for (const pair of this[_map]) {
       const key = new LanguageTag(pair[0]);
-      if (checktag == '*' ||
+      if (checktag === '*' ||
           key.suitableFor(checktag) ||
           checktag.suitableFor(key))
         return pair[1];
