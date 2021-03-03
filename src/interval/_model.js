@@ -4,7 +4,6 @@ const Base = require('../models/_base');
 const composedType = Base.composedType;
 const interval = require('vocabs-interval');
 const xsd = require('vocabs-xsd');
-const AsObject = require('../models').Object;
 const utils = require('../utils');
 const is_string = utils.is_string;
 const is_primitive = utils.is_primitive;

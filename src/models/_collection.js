@@ -2,7 +2,6 @@
 
 const range = require('../utils').range;
 const throwif = require('../utils').throwif;
-const AsObject = require('./_object');
 const Base = require('./_base');
 const as = require('vocabs-as');
 const xsd = require('vocabs-xsd');

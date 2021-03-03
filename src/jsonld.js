@@ -2,13 +2,10 @@
 
 const jsonld = require('jsonld')();
 const jsig = require('jsonld-signatures')({inject:{jsonld:jsonld}});
-const throwif = require('./utils').throwif;
 const checkCallback = require('./utils').checkCallback;
 const as_context = require('activitystreams-context');
-const securityContext = require('./jsig');
 const ext_context = require('./extcontext');
 const models = require('./models');
-const as = require('vocabs-as');
 const Environment = require('./environment');
 const Loader = require('./contextloader');
 const as_url_nohash = 'https://www.w3.org/ns/activitystreams';

@@ -1,7 +1,6 @@
 'use strict';
 
 const jsonld = require('jsonld')();
-const throwif = require('./utils').throwif;
 const checkCallback = require('./utils').checkCallback;
 const as = require('vocabs-as');
 const as_context = require('activitystreams-context');

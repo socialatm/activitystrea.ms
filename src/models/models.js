@@ -2,8 +2,6 @@
 
 const as = require('vocabs-as');
 const reasoner = require('../reasoner');
-const utils = require('../utils');
-
 const _compose = Symbol('compose');
 
 var cache = Object.create(null);
