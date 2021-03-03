@@ -315,7 +315,7 @@ class Base {
         value = [].concat(value);
       tmpl[key] = value;
     }
-    return ()=> {
+    return () => {
       let bld = new Builder(type);
       bld[_expanded] = bld[_base][_expanded] = Object.create(tmpl);
       models.compose_builder(bld, type);

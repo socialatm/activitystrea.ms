@@ -73,7 +73,7 @@ exports.init = function(models, reasoner, context) {
     [interval.RightOpenInterval, interval.Interval],
     [interval.LeftClosedInterval, interval.Interval],
     [interval.RightClosedInterval, interval.Interval]
-  ].forEach((pair)=> {
+  ].forEach((pair) => {
     graph.add({
       subject: pair[0],
       predicate: rdfs.subClassOf,
@@ -97,7 +97,7 @@ exports.init = function(models, reasoner, context) {
     [interval.lower, functionalDatatype],
     [interval.upper, functionalDatatype],
     [interval.step, functionalDatatype],
-  ].forEach((pair)=> {
+  ].forEach((pair) => {
     graph.add({
       subject: pair[0],
       predicate: rdf.type,

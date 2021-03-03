@@ -156,7 +156,7 @@ exports.init = function(models, reasoner, context) {
     [social.Any, social.CompoundPopulation],
     [social.None, social.CompoundPopulation],
     [social.CompoundPopulation, social.Population]
-  ].forEach((pair)=> {
+  ].forEach((pair) => {
     graph.add({
       subject: pair[0],
       predicate: rdfs.subClassOf,
@@ -175,7 +175,7 @@ exports.init = function(models, reasoner, context) {
     [social.havingRole, owl.ObjectProperty],
     [social.havingRelationship, owl.ObjectProperty],
     [social.distance, functionalDatatype]
-  ].forEach((pair)=> {
+  ].forEach((pair) => {
     graph.add({
       subject: pair[0],
       predicate: rdf.type,
