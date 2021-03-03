@@ -6,7 +6,6 @@ const Base = require('./_base');
 const as = require('vocabs-as');
 const xsd = require('vocabs-xsd');
 const composedType = Base.composedType;
-
 const _ordered = Symbol('ordered');
 const _items = Symbol('items');
 const slice = Array.prototype.slice;
@@ -23,7 +22,7 @@ const Collection = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? 0 : ret
     });
-    return isNaN(ret) ? 0 : ret ;
+    return isNaN(ret) ? 0 : ret;
   },
   get current() {
     const current = this.get(as.current);
