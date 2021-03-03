@@ -29,11 +29,11 @@ function is_literal(item) {
 }
 
 function is_iterable(item) {
-  if (item === undefined) return false;
-  if (typeof item === 'string') return false;
-  if (item[_expanded] !== undefined) return false; // It's a Base obj
-  if (item instanceof LanguageValue) return false;
-  if (item instanceof LanguageValue.Builder) return false;
+  if (item === undefined) { return false; }
+  if (typeof item === 'string') { return false; }
+  if (item[_expanded] !== undefined) { return false; } // It's a Base obj
+  if (item instanceof LanguageValue) { return false; }
+  if (item instanceof LanguageValue.Builder) { return false; }
   return typeof item[Symbol.iterator] === 'function';
 }
 
