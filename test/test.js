@@ -6,12 +6,11 @@ const models = require('../src/models');
 const asv = require('vocabs-as');
 const social = require('vocabs-social');
 const interval = require('vocabs-interval');
-
 const now = new Date();
 const nowiso = now.toISOString();
 
-describe('Basics...', ()=> {
-  it('should build a minimal object', (done)=> {
+describe('Basics...', () => {
+  it('should build a minimal object', (done) => {
     var object = as.object().get();
     assert.equal(object.type, asv.Object);
     done();
@@ -28,7 +27,7 @@ describe('Basics...', ()=> {
     assert.equal(object.updated.toISOString(), nowiso);
   }
 
-  it('should create an object and return all the correct values', (done)=> {
+  it('should create an object and return all the correct values', (done) => {
     var object = as.object()
       .content(
         as.langmap()
@@ -49,7 +48,7 @@ describe('Basics...', ()=> {
     done();
   });
 
-  it('should roundtrip correctly', (done)=> {
+  it('should roundtrip correctly', (done) => {
     var object = as.object()
       .content(
         as.langmap()
@@ -66,9 +65,9 @@ describe('Basics...', ()=> {
       .published(now)
       .updated(now)
       .get();
-    object.export((e,d)=> {
+    object.export((e,d) => {
       assert.equal(e, null);
-      as.import(d, (e,d)=> {
+      as.import(d, (e,d) => {
         assert.equal(e,undefined);
         testFunctionalProperties(d);
         done();
@@ -76,14 +75,14 @@ describe('Basics...', ()=> {
     });
   });
 
-  it('should produce the correct default context URL', (done)=> {
+  it('should produce the correct default context URL', (done) => {
     var object = as.object().get();
     assert(typeof(object) === 'object');
-    object.export((e, d)=> {
-      assert.equal(e, null);
-      assert(typeof(d) === 'object');
-      assert(d.hasOwnProperty('@context'));
-      assert.equal(d['@context'], 'https://www.w3.org/ns/activitystreams');
+    object.export((err, doc) => {
+      assert.equal(err, null);
+      assert(typeof(doc) === 'object');
+      assert(doc.hasOwnProperty('@context'));
+      assert.equal(doc['@context'], 'https://www.w3.org/ns/activitystreams');
       done();
     });
   });
