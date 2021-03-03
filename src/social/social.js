@@ -100,7 +100,7 @@ exports.compoundPopulation = function(types, environment) {
 function social_recognizer(type) {
   let Thing;
   if (type) {
-    let node = reasoner.node(type);
+    const node = reasoner.node(type);
     if (node.is(social.Common)) {
       Thing = exports.model.Common;
     } else if (node.is(social.Interested)) {
@@ -142,7 +142,7 @@ exports.init = function(models, reasoner, context) {
 
   models.use(social_recognizer);
 
-  let graph = new reasoner.Graph();
+  const graph = new reasoner.Graph();
   [
     [social.Population, as.Object],
     [social.Everyone, social.Population],
@@ -164,7 +164,7 @@ exports.init = function(models, reasoner, context) {
     });
   });
 
-  let functionalDatatype = [
+  const functionalDatatype = [
         owl.DatatypeProperty,
         owl.FunctionalProperty
       ];

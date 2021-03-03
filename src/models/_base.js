@@ -354,14 +354,14 @@ class Base {
 }
 
 function setTypes(builder, types) {
-  let exp = builder[_base][_expanded];
+  const exp = builder[_base][_expanded];
   if (!types || (types && types.length === 0)) {
     delete exp['@type'];
   } else {
-    let ret = [];
+    const ret = [];
     if (!Array.isArray(types)) types = [types];
     types = reasoner.reduce(types);
-    for (let type of types) {
+    for (const type of types) {
       ret.push(type.valueOf());
     }
     exp['@type'] = ret;
@@ -377,26 +377,26 @@ class BaseBuilder {
   }
 
   set(key, val, options) {
-    let expanded = this[_base][_expanded];
+    const expanded = this[_base][_expanded];
     options = options || {};
     if (val instanceof BaseBuilder || val instanceof LanguageValue.Builder)
       val = val.get();
     let n, l;
     key = as[key] || key;
-    let nodekey = reasoner.node(key);
+    const nodekey = reasoner.node(key);
     if (val === null || val === undefined) {
       delete expanded[key];
       if (expanded[key] !== undefined)
         expanded[key] = null;
     } else {
-      let is_iter = is_iterable(val);
+      const is_iter = is_iterable(val);
       if (nodekey.is(owl.FunctionalProperty)) {
         throwif(is_iter, 'Functional properties cannot have array values');
         delete _expanded[key];
       }
       expanded[key] = expanded[key] || [];
       if (!is_iter) val = [val];
-      for (let value of val) {
+      for (const value of val) {
         if (nodekey.is(owl.ObjectProperty) ||
             value instanceof Base ||
             key == '@list') {
@@ -406,8 +406,8 @@ class BaseBuilder {
             expanded[key].push({'@id': value});
           } else if (typeof value === 'object') {
             let base = new BaseBuilder();
-            for (let k of Object.keys(value)) {
-              let v = value[k];
+            for (const k of Object.keys(value)) {
+              const v = value[k];
               if (k === '@id') base.id(v);
               else if (k === '@type') base.type(v);
               else base.set(k, v);
@@ -417,14 +417,14 @@ class BaseBuilder {
             throw new Error('Invalid object property type');
           }
         } else if (value instanceof LanguageValue) {
-          for (let pair of value) {
+          for (const pair of value) {
             expanded[key].push({
               '@language': pair[0],
               '@value': pair[1]
             });
           }
         } else {
-          let ret = {
+          const ret = {
             '@value': value
           };
           if (options.lang) ret['@language'] = options.lang;
