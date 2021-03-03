@@ -53,7 +53,7 @@ class JsonLD {
     jsonld.normalize(
       expanded,
       {format: 'application/nquads'},
-      (err,doc)=> {
+      (err,doc) => {
         if (err) return callback(err);
         callback(null,doc);
       });
@@ -69,7 +69,7 @@ class JsonLD {
     let _context = getContext(options);
     jsonld.compact(
       expanded, _context, {},
-      (err, doc)=> {
+      (err, doc) => {
         if (err) return callback(err);
         if (typeof options.sign === 'object') {
           warn();
@@ -104,7 +104,7 @@ class JsonLD {
         documentLoader: environment.loader.makeDocLoader(),
         keepFreeFloatingNodes: true
       },
-      (err,expanded)=> {
+      (err,expanded) => {
         if (err) return callback(err);
         if (expanded && expanded.length > 0) {
           let object = models.wrap_object(expanded[0], environment);
@@ -119,7 +119,7 @@ class JsonLD {
   static importFromRDF(input, callback) {
     checkCallback(callback);
     jsonld.fromRDF(input, {format: 'application/nquads'},
-    (err, expanded)=> {
+    (err, expanded) => {
       if (err) return callback(err);
       let base = models.wrap_object(expanded[0]);
       callback(null, base);
