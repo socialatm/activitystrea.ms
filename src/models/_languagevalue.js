@@ -9,11 +9,11 @@ class LanguageValue {
   }
   get(lang) {
     if (!lang) return this.get(LanguageValue.SYSLANG);
-    let checktag = new LanguageTag(lang);
+    const checktag = new LanguageTag(lang);
     if (this[_map].has(checktag.toString()))
       return this[_map].get(checktag.toString());
-    for (let pair of this[_map]) {
-      let key = new LanguageTag(pair[0]);
+    for (const pair of this[_map]) {
+      const key = new LanguageTag(pair[0]);
       if (checktag == '*' ||
           key.suitableFor(checktag) ||
           checktag.suitableFor(key))
@@ -22,11 +22,11 @@ class LanguageValue {
   }
   has(lang) {
     if (!lang) return this.get(LanguageValue.SYSLANG);
-    let checktag = new LanguageTag(lang);
+    const checktag = new LanguageTag(lang);
     return this[_map].has(checktag);
   }
   *[Symbol.iterator]() {
-    for (let pair of this[_map])
+    for (const pair of this[_map])
       yield [pair[0].toString(), pair[1]];
   }
   valueOf(lang) {
