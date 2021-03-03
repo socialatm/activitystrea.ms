@@ -29,7 +29,7 @@ function getContext(options) {
     return {'@context': options.origContext};
   } else {
     let ctx = [];
-    let ext = ext_context.get();
+    const ext = ext_context.get();
     if (ext)
       ctx = ctx.concat(ext);
     if (options && options.sign)
@@ -66,7 +66,7 @@ class JsonLD {
     }
     options = options || {};
     checkCallback(callback);
-    let _context = getContext(options);
+    const _context = getContext(options);
     jsonld.compact(
       expanded, _context, {},
       (err, doc) => {
@@ -107,7 +107,7 @@ class JsonLD {
       (err,expanded) => {
         if (err) return callback(err);
         if (expanded && expanded.length > 0) {
-          let object = models.wrap_object(expanded[0], environment);
+          const object = models.wrap_object(expanded[0], environment);
           callback(null,object);
         } else {
           callback(null,null);
@@ -121,7 +121,7 @@ class JsonLD {
     jsonld.fromRDF(input, {format: 'application/nquads'},
     (err, expanded) => {
       if (err) return callback(err);
-      let base = models.wrap_object(expanded[0]);
+      const base = models.wrap_object(expanded[0]);
       callback(null, base);
     });
   }
