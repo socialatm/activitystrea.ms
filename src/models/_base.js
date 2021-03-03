@@ -121,7 +121,7 @@ class BaseReader extends Readable {
         this[_base].write;
     method.call(this[_base], this[_options], (err, doc) => {
       if (err) return this.emit('error', err);
-      this.push(objectmode ? doc : new Buffer(doc, 'utf8'));
+      this.push(objectmode ? doc : new Buffer.from(doc, 'utf8'));
       this.push(null);
       return false;
     });
