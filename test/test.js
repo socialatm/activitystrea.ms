@@ -330,7 +330,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every collection property',
-    (done)=> {
+    (done) => {
 
     var doc = as.collection()
       .id('http://example.org')
@@ -356,7 +356,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every collection property',
-    (done)=> {
+    (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -372,7 +372,7 @@ describe('Basics...', () => {
       ]
     };
 
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.totalItems, 1);
@@ -389,7 +389,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every activity property',
-    (done)=> {
+    (done) => {
 
     var doc = as.activity()
       .id('http://example.org')
@@ -427,7 +427,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every activity property',
-    (done)=> {
+    (done) => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -441,7 +441,7 @@ describe('Basics...', () => {
       instrument: 'http://example.org/instrument'
     };
 
-    as.import(test, (err,doc)=> {
+    as.import(test, (err,doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.id, 'http://example.org');
@@ -470,7 +470,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every link property',
-    (done)=> {
+    (done) => {
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
@@ -483,7 +483,7 @@ describe('Basics...', () => {
       height: 10,
       width: 10,
     };
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Link);
       assert.equal(doc.id, 'http://example.org');
@@ -501,7 +501,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every link property',
-    (done)=> {
+    (done) => {
     var doc = as.link()
       .id('http://example.org')
       .href('http://example.org')
@@ -530,7 +530,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every object property',
-     (done)=> {
+     (done) => {
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
       'id': 'http://example.org',
@@ -559,7 +559,7 @@ describe('Basics...', () => {
       cc: 'http://mark.example.org',
       bcc: 'http://jane.example.org'
     };
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert.equal(doc.id, 'http://example.org');
       assert.equal(doc.type, asv.Object);
@@ -629,7 +629,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for every object property',
-     (done)=> {
+     (done) => {
     var doc = as.object()
       .id('http://example.org')
       .attachment('http://example.org/attachment')
@@ -724,7 +724,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for the relationship object',
-    (done)=> {
+    (done) => {
 
       var test = {
         '@context': 'https://www.w3.org/ns/activitystreams',
@@ -734,7 +734,7 @@ describe('Basics...', () => {
         object: 'http://joe.example.org'
       };
 
-      as.import(test, (err,doc)=> {
+      as.import(test, (err,doc) => {
         assert.equal(err, undefined);
         assert(doc instanceof as.models.Object);
         assert(doc.subject.id, 'http://sally.example.org');
@@ -750,7 +750,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for the relationship object',
-    (done)=> {
+    (done) => {
 
       var doc = as.relationship()
         .subject('http://sally.example.org')
@@ -771,7 +771,7 @@ describe('Basics...', () => {
   });
 
   it('should have appropriate values for the question object',
-    (done)=> {
+    (done)            => {
 
     var test = {
       '@context': 'https://www.w3.org/ns/activitystreams',
@@ -780,7 +780,7 @@ describe('Basics...', () => {
       anyOf: [{'id': 'urn:answer1'},{'id': 'urn:answer2'}]
     };
 
-    as.import(test, (err, doc)=> {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.name.get(), 'the question');
