@@ -224,7 +224,7 @@ module.exports = exports = {
     }
     let Thing = is_link ?
       exports.Link :
-      exports.Object ;
+      exports.Object;
     return new Thing(expanded, undefined, environment);
   },
 

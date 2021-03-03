@@ -15,7 +15,7 @@ const Place = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? undefined : ret
     });
-    return isNaN(ret) ? undefined : ret ;
+    return isNaN(ret) ? undefined : ret;
   },
   get altitude() {
     const ret = this.get(as.altitude);
@@ -24,7 +24,7 @@ const Place = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? undefined : ret
     });
-    return isNaN(ret) ? undefined : ret ;
+    return isNaN(ret) ? undefined : ret;
   },
   get latitude() {
     let ret = range(-90.0, 90.0, this.get(as.latitude));
@@ -33,7 +33,7 @@ const Place = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? undefined : ret
     });
-    return isNaN(ret) ? undefined : ret ;
+    return isNaN(ret) ? undefined : ret;
   },
   get longitude() {
     const ret = range(-180.0, 180.0, this.get(as.longitude));
@@ -42,7 +42,7 @@ const Place = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? undefined : ret
     });
-    return isNaN(ret) ? undefined : ret ;
+    return isNaN(ret) ? undefined : ret;
   },
   get radius() {
     const ret = range(0, Infinity, this.get(as.radius));
@@ -51,7 +51,7 @@ const Place = composedType(undefined, {
       configurable: false,
       value: isNaN(ret) ? undefined : ret
     });
-    return isNaN(ret) ? undefined : ret ;
+    return isNaN(ret) ? undefined : ret;
   },
   get units() {
     const units = this.get(as.units);
