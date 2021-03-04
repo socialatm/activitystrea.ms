@@ -53,9 +53,9 @@ class JsonLD {
     jsonld.normalize(
       expanded,
       {format: 'application/nquads'},
-      (err,doc) => {
+      (err, doc) => {
         if (err) return callback(err);
-        callback(null,doc);
+        callback(null, doc);
       });
   }
 
@@ -73,7 +73,7 @@ class JsonLD {
         if (err) return callback(err);
         if (typeof options.sign === 'object') {
           warn();
-          jsig.sign(doc,options.sign,callback);
+          jsig.sign(doc, options.sign, callback);
         } else {
           callback(null, doc);
         }
@@ -104,13 +104,13 @@ class JsonLD {
         documentLoader: environment.loader.makeDocLoader(),
         keepFreeFloatingNodes: true
       },
-      (err,expanded) => {
+      (err, expanded) => {
         if (err) return callback(err);
         if (expanded && expanded.length > 0) {
           const object = models.wrap_object(expanded[0], environment);
-          callback(null,object);
+          callback(null, object);
         } else {
-          callback(null,null);
+          callback(null, null);
         }
       }
     );
