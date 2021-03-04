@@ -59,6 +59,7 @@ class ValueIterator {
     this[_items] = items;
     this[kEnvironment] = environment;
   }
+  
   *[Symbol.iterator] () {
     for (const item of this[_items]) {
       if (is_literal(item)) {
@@ -111,6 +112,7 @@ class BaseReader extends Readable {
     this[_base] = base;
     this[_options] = options;
   }
+
   _read() {
     if (this[_done]) return;
     const objectmode = this[_options].objectMode;

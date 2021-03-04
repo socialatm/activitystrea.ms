@@ -7,7 +7,7 @@ class LanguageValue {
   constructor(map) {
     this[_map] = map;
   }
-  
+
   get(lang) {
     if (!lang) return this.get(LanguageValue.SYSLANG);
     const checktag = new LanguageTag(lang);
@@ -51,6 +51,7 @@ class LanguageValueBuilder {
     this[_map].set(new LanguageTag(lang).toString(), value);
     return this;
   }
+  
   get() {
     return new LanguageValue(this[_map]);
   }
