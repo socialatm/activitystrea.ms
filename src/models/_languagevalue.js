@@ -7,6 +7,7 @@ class LanguageValue {
   constructor(map) {
     this[_map] = map;
   }
+  
   get(lang) {
     if (!lang) return this.get(LanguageValue.SYSLANG);
     const checktag = new LanguageTag(lang);
@@ -20,15 +21,18 @@ class LanguageValue {
         return pair[1];
     }
   }
+
   has(lang) {
     if (!lang) return this.get(LanguageValue.SYSLANG);
     const checktag = new LanguageTag(lang);
     return this[_map].has(checktag);
   }
+
   *[Symbol.iterator]() {
     for (const pair of this[_map])
       yield [pair[0].toString(), pair[1]];
   }
+
   valueOf(lang) {
     return this.get(lang);
   }
@@ -38,6 +42,7 @@ class LanguageValueBuilder {
   constructor() {
     this[_map] = new Map();
   }
+
   set(lang, value) {
     if (arguments.length === 1) {
       value = lang;
