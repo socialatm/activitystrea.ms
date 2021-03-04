@@ -340,7 +340,6 @@ class Base {
     _compose(this, types, Base);
   }
 
-
   static composedType(includes, def) {
     if (!Array.isArray(includes))
       includes = [includes];
