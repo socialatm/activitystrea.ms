@@ -116,37 +116,37 @@ describe('Basics...', () => {
   });
 
   it('should create activities with an appropriate type', (done) => {
-    [['accept',asv.Accept],
-     ['tentativeAccept',asv.TentativeAccept],
-     ['add',asv.Add],
-     ['arrive',asv.Arrive],
-     ['create',asv.Create],
-     ['delete',asv.Delete],
-     ['follow',asv.Follow],
-     ['ignore',asv.Ignore],
-     ['join',asv.Join],
-     ['leave',asv.Leave],
-     ['like',asv.Like],
-     ['offer',asv.Offer],
-     ['invite',asv.Invite],
-     ['reject',asv.Reject],
-     ['tentativeReject',asv.TentativeReject],
-     ['remove',asv.Remove],
-     ['undo',asv.Undo],
-     ['update',asv.Update],
-     ['view',asv.View],
-     ['listen',asv.Listen],
-     ['read',asv.Read],
-     ['move',asv.Move],
-     ['travel',asv.Travel],
-     ['announce',asv.Announce],
-     ['block',asv.Block],
-     ['flag',asv.Flag],
-     ['dislike',asv.Dislike]
+    [['accept', asv.Accept],
+     ['tentativeAccept', asv.TentativeAccept],
+     ['add', asv.Add],
+     ['arrive', asv.Arrive],
+     ['create', asv.Create],
+     ['delete', asv.Delete],
+     ['follow', asv.Follow],
+     ['ignore', asv.Ignore],
+     ['join', asv.Join],
+     ['leave', asv.Leave],
+     ['like', asv.Like],
+     ['offer', asv.Offer],
+     ['invite', asv.Invite],
+     ['reject', asv.Reject],
+     ['tentativeReject', asv.TentativeReject],
+     ['remove', asv.Remove],
+     ['undo', asv.Undo],
+     ['update', asv.Update],
+     ['view', asv.View],
+     ['listen', asv.Listen],
+     ['read', asv.Read],
+     ['move', asv.Move],
+     ['travel', asv.Travel],
+     ['announce', asv.Announce],
+     ['block', asv.Block],
+     ['flag', asv.Flag],
+     ['dislike', asv.Dislike]
    ].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Object);
-      assert.equal(obj.type,key[1]);
+      assert.equal(obj.type, key[1]);
     });
     done();
   });
@@ -173,7 +173,7 @@ describe('Basics...', () => {
    ].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Object);
-      assert.equal(obj.type,key[1]);
+      assert.equal(obj.type, key[1]);
     });
     done();
   });
@@ -441,7 +441,7 @@ describe('Basics...', () => {
       instrument: 'http://example.org/instrument'
     };
 
-    as.import(test, (err,doc) => {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert(doc instanceof as.models.Object);
       assert.equal(doc.id, 'http://example.org');
