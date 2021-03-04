@@ -61,7 +61,7 @@ function gettypes(types, type) {
 }
 
 exports.population = function(types, environment) {
-  return a.object(gettypes(types,social.Population), environment);
+  return a.object(gettypes(types, social.Population), environment);
 };
 exports.everyone = function(types, environment) {
   return a.object(gettypes(types,social.Everyone), environment);
@@ -76,25 +76,25 @@ exports.direct = function(types, environment) {
   return a.object(gettypes(types,social.Direct), environment);
 };
 exports.common = function(types, environment) {
-  return a.object(gettypes(types,social.Common), environment);
+  return a.object(gettypes(types, social.Common), environment);
 };
 exports.interested = function(types, environment) {
-  return a.object(gettypes(types,social.Interested), environment);
+  return a.object(gettypes(types, social.Interested), environment);
 };
 exports.self = function(types, environment) {
-  return a.object(gettypes(types,social.Self), environment);
+  return a.object(gettypes(types, social.Self), environment);
 };
 exports.all = function(types, environment) {
-  return a.object(gettypes(types,social.All), environment);
+  return a.object(gettypes(types, social.All), environment);
 };
 exports.any = function(types, environment) {
-  return a.object(gettypes(types,social.Any), environment);
+  return a.object(gettypes(types, social.Any), environment);
 };
 exports.none = function(types, environment) {
-  return a.object(gettypes(types,social.None), environment);
+  return a.object(gettypes(types, social.None), environment);
 };
 exports.compoundPopulation = function(types, environment) {
-  return a.object(gettypes(types,social.CompoundPopulation), environment);
+  return a.object(gettypes(types, social.CompoundPopulation), environment);
 };
 
 function social_recognizer(type) {
