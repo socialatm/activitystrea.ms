@@ -153,23 +153,23 @@ describe('Basics...', () => {
 
   it('should create objects with an appropriate type', (done) => {
     [
-     ['application',asv.Application],
-     ['group',asv.Group],
-     ['person',asv.Person],
-     ['organization',asv.Organization],
-     ['service',asv.Service],
-     ['article',asv.Article],
-     ['document',asv.Document],
-     ['relationship',asv.Relationship],
-     ['profile',asv.Profile],
-     ['audio',asv.Audio],
-     ['image',asv.Image],
-     ['video',asv.Video],
-     ['note',asv.Note],
-     ['page',asv.Page],
-     ['question',asv.Question],
-     ['event',asv.Event],
-     ['place',asv.Place]
+     ['application', asv.Application],
+     ['group', asv.Group],
+     ['person', asv.Person],
+     ['organization', asv.Organization],
+     ['service', asv.Service],
+     ['article', asv.Article],
+     ['document', asv.Document],
+     ['relationship', asv.Relationship],
+     ['profile', asv.Profile],
+     ['audio', asv.Audio],
+     ['image', asv.Image],
+     ['video', asv.Video],
+     ['note', asv.Note],
+     ['page', asv.Page],
+     ['question', asv.Question],
+     ['event', asv.Event],
+     ['place', asv.Place]
    ].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Object);
