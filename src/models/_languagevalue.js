@@ -59,7 +59,7 @@ class LanguageValueBuilder {
 
 LanguageValue.SYSLANG =
   process.env.LANG ?
-    process.env.LANG.split('.')[0].replace('_','-') : 'en-US';
+    process.env.LANG.split('.')[0].replace('_', '-') : 'en-US';
 
 LanguageValue.Builder = LanguageValueBuilder;
 

@@ -109,7 +109,7 @@ const CollectionBuilder = composedType(undefined, {
     }
     this[_items].set('@list', val);
     if (set)
-      this.set(as.items,this[_items].get());
+      this.set(as.items, this[_items].get());
     return this;
   },
   get ordered() {

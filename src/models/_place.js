@@ -91,7 +91,7 @@ const PlaceBuilder = composedType(undefined, {
     return this;
   },
   units(val) {
-    return this.set(as.units,val);
+    return this.set(as.units, val);
   }
 });
 
