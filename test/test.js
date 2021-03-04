@@ -1,7 +1,7 @@
 'use strict';
 
 const assert = require('assert');
-const as = require('..');
+const as = require('../src/activitystreams');
 const models = require('../src/models');
 const asv = require('vocabs-as');
 const social = require('vocabs-social');

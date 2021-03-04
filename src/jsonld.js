@@ -1,7 +1,7 @@
 'use strict';
 
 const jsonld = require('jsonld')();
-const jsig = require('jsonld-signatures')({inject: {jsonld: jsonld}});
+const jsig = require('jsonld-signatures'); //({inject: {jsonld: jsonld}});
 const checkCallback = require('./utils').checkCallback;
 const as_context = require('activitystreams-context');
 const ext_context = require('./extcontext');
