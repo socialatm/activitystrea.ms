@@ -12,7 +12,7 @@
   },
   "license": "Apache-2.0",
   "scripts": {
-    "test": "mocha test/test.js"
+    "test": "mocha ./test/ --recursive"
   },
   "dependencies": {
     "activitystreams-context": "^3.1.0",
