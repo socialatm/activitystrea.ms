@@ -10,8 +10,6 @@ Includes experimental support for:
 * http://ns.jasnell.me/interval
 * http://ns.jasnell.me/social
 
-Starting with version `v0.8.0`, a minimum of Node v4.0.0 / ES6 is required.
-
 ## Getting Started
 
 ### Installation
