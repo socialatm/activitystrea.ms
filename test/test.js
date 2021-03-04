@@ -447,22 +447,22 @@ describe('Basics...', () => {
       assert.equal(doc.id, 'http://example.org');
 
       assert(doc.actor);
-      assert.equal(doc.actor.length,1);
+      assert.equal(doc.actor.length, 1);
       assert.equal(doc.actor.first.id, 'http://example.org/actor');
       assert(doc.object);
-      assert.equal(doc.object.length,1);
+      assert.equal(doc.object.length, 1);
       assert.equal(doc.object.first.id, 'http://example.org/object');
       assert(doc.target);
-      assert.equal(doc.target.length,1);
+      assert.equal(doc.target.length, 1);
       assert.equal(doc.target.first.id, 'http://example.org/target');
       assert(doc.result);
-      assert.equal(doc.result.length,1);
+      assert.equal(doc.result.length, 1);
       assert.equal(doc.result.first.id, 'http://example.org/result');
       assert(doc.origin);
-      assert.equal(doc.origin.length,1);
+      assert.equal(doc.origin.length, 1);
       assert.equal(doc.origin.first.id, 'http://example.org/origin');
       assert(doc.instrument);
-      assert.equal(doc.instrument.length,1);
+      assert.equal(doc.instrument.length, 1);
       assert.equal(doc.instrument.first.id, 'http://example.org/instrument');
       done();
     });
@@ -476,7 +476,7 @@ describe('Basics...', () => {
       'id': 'http://example.org',
       'type': 'Link',
       href: 'http://example.org',
-      rel: ['a','b'],
+      rel: ['a', 'b'],
       mediaType: 'application/text',
       name: 'the display name',
       hreflang: 'en',
@@ -567,7 +567,7 @@ describe('Basics...', () => {
       assert.equal(doc.attachment.length,1);
       assert.equal(doc.attachment.first.id, 'http://example.org/attachment');
       assert(doc.attributedTo);
-      assert.equal(doc.attributedTo.length,1);
+      assert.equal(doc.attributedTo.length, 1);
       assert.equal(doc.attributedTo.first.id, 'http://sally.example.org');
       assert.equal(doc.content.get(), 'the content');
       assert(doc.context);
@@ -734,7 +734,7 @@ describe('Basics...', () => {
         object: 'http://joe.example.org'
       };
 
-      as.import(test, (err,doc) => {
+      as.import(test, (err, doc) => {
         assert.equal(err, undefined);
         assert(doc instanceof as.models.Object);
         assert(doc.subject.id, 'http://sally.example.org');
@@ -777,7 +777,7 @@ describe('Basics...', () => {
       '@context': 'https://www.w3.org/ns/activitystreams',
       'type': 'Question',
       name: 'the question',
-      anyOf: [{'id': 'urn:answer1'},{'id': 'urn:answer2'}]
+      anyOf: [{'id': 'urn:answer1'}, {'id': 'urn:answer2'}]
     };
 
     as.import(test, (err, doc) => {
@@ -785,7 +785,7 @@ describe('Basics...', () => {
       assert(doc instanceof as.models.Object);
       assert.equal(doc.name.get(), 'the question');
       assert(doc.anyOf);
-      assert.equal(doc.anyOf.length,2);
+      assert.equal(doc.anyOf.length, 2);
       const iter = doc.anyOf[Symbol.iterator]();
       assert.equal(iter.next().value.id, 'urn:answer1');
       assert.equal(iter.next().value.id, 'urn:answer2');
@@ -805,7 +805,7 @@ describe('Basics...', () => {
     assert(doc instanceof as.models.Object);
     assert.equal(doc.name.get(), 'the question');
     assert(doc.anyOf);
-    assert.equal(doc.anyOf.length,2);
+    assert.equal(doc.anyOf.length, 2);
     const iter = doc.anyOf[Symbol.iterator]();
     assert.equal(iter.next().value.id, 'urn:answer1');
     assert.equal(iter.next().value.id, 'urn:answer2');
@@ -893,7 +893,7 @@ describe('Basics...', () => {
 
   it('should use the default context', (done) => {
     var test = {'id': 'urn:test', name: 'test'};
-    as.import(test, (err,doc) => {
+    as.import(test, (err, doc) => {
       assert.equal(err, undefined);
       assert.equal(doc.id, 'urn:test');
       assert.equal(doc.name.get(), 'test');
@@ -942,9 +942,9 @@ describe('Streaming...', () => {
     var path = require('path');
     var through = require('through2');
 
-    fs.createReadStream(path.resolve(__dirname,'test.json'))
+    fs.createReadStream(path.resolve(__dirname, 'test.json'))
       .pipe(new AS2Stream())
-      .pipe(through.obj((chunk,encoding,callback) => {
+      .pipe(through.obj((chunk, encoding, callback) => {
         assert(chunk);
         assert(chunk.type);
         assert.equal(chunk.type, asv.Person);
@@ -959,7 +959,7 @@ describe('Streaming...', () => {
     var obj = as.object().name('test').get();
     obj.stream()
       .pipe(new AS2Stream())
-      .pipe(through.obj((chunk,encoding,callback) => {
+      .pipe(through.obj((chunk, encoding, callback) => {
         assert(chunk);
         assert(chunk.type);
         assert.equal(chunk.name.valueOf(), 'test');
@@ -1092,12 +1092,12 @@ describe('Extensions...', () => {
       }
     };
 
-    obj.prettyWrite(options, (err,doc) => {
+    obj.prettyWrite(options, (err, doc) => {
       assert.equal(err, undefined);
       as.verify(doc, {
         publicKey: testPublicKey,
         publicKeyOwner: testPublicKeyOwner,
-      }, (err,verified) => {
+      }, (err, verified) => {
         assert.equal(err, undefined);
         assert(verified);
         done();
