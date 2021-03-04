@@ -16,7 +16,7 @@
   },
   "dependencies": {
     "activitystreams-context": "^3.1.0",
-    "jsonld": "^0.4.12",
+    "jsonld": "^1.8.1",
     "jsonld-signatures": "^4.6.0",
     "moment": "^2.29.1",
     "readable-stream": "^2.2.3",
