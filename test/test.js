@@ -251,10 +251,10 @@ describe('Basics...', () => {
 
   it('should roundtrip the RDF properly', (done) => {
     var obj = as.object().name('test').get();
-    obj.toRDF((err,doc) => {
+    obj.toRDF((err, doc) => {
       assert.equal(err, undefined);
       assert(doc);
-      as.importFromRDF(doc, (err,doc ) => {
+      as.importFromRDF(doc, (err, doc ) => {
         assert.equal(err, undefined);
         assert.equal(doc.name.get(), 'test');
         done();
@@ -264,8 +264,8 @@ describe('Basics...', () => {
 
   it('should import an object with just an id', (done) => {
     var test = {'id': 'http://example.org'};
-    as.import(test, (err,doc) => {
-      assert.equal(err,undefined);
+    as.import(test, (err, doc) => {
+      assert.equal(err, undefined);
       assert.equal(doc.id, 'http://example.org');
       done();
     });
@@ -405,22 +405,22 @@ describe('Basics...', () => {
     assert.equal(doc.id, 'http://example.org');
 
     assert(doc.actor);
-    assert.equal(doc.actor.length,1);
+    assert.equal(doc.actor.length, 1);
     assert.equal(doc.actor.first.id, 'http://example.org/actor');
     assert(doc.object);
-    assert.equal(doc.object.length,1);
+    assert.equal(doc.object.length, 1);
     assert.equal(doc.object.first.id, 'http://example.org/object');
     assert(doc.target);
-    assert.equal(doc.target.length,1);
+    assert.equal(doc.target.length, 1);
     assert.equal(doc.target.first.id, 'http://example.org/target');
     assert(doc.result);
-    assert.equal(doc.result.length,1);
+    assert.equal(doc.result.length, 1);
     assert.equal(doc.result.first.id, 'http://example.org/result');
     assert(doc.origin);
-    assert.equal(doc.origin.length,1);
+    assert.equal(doc.origin.length, 1);
     assert.equal(doc.origin.first.id, 'http://example.org/origin');
     assert(doc.instrument);
-    assert.equal(doc.instrument.length,1);
+    assert.equal(doc.instrument.length, 1);
     assert.equal(doc.instrument.first.id, 'http://example.org/instrument');
 
     done();
