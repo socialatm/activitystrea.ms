@@ -266,12 +266,12 @@ class Base {
       options = {};
     }
     options = options || {};
-    this.export(options, function(err,doc) {
+    this.export(options, function(err, doc) {
       if (err) {
         callback(err);
         return;
       }
-      callback(null, JSON.stringify(doc,null,options.space));
+      callback(null, JSON.stringify(doc, null, options.space));
     });
   }
 
@@ -371,7 +371,7 @@ function setTypes(builder, types) {
 class BaseBuilder {
   constructor(types, base, environment) {
     this[_base] = base || new Base(undefined, undefined, environment);
-    setTypes(this,types);
+    setTypes(this, types);
     models.compose_base(this[_base], types);
     models.compose_builder(this, types);
   }
