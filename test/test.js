@@ -179,10 +179,10 @@ describe('Basics...', () => {
   });
 
   it('should create link objects with an appropriate type', (done) => {
-    [['mention',asv.Mention]].forEach((key) => {
+    [['mention', asv.Mention]].forEach((key) => {
       var obj = as[key[0]]().get();
       assert(obj instanceof models.Link);
-      assert.equal(obj.type,key[1]);
+      assert.equal(obj.type, key[1]);
     });
     done();
   });
@@ -1015,7 +1015,7 @@ describe('Extensions...', () => {
       .step(1)
       .get();
       assert(obj instanceof as.models.Object);
-      assert.equal(obj.type,key[1]);
+      assert.equal(obj.type, key[1]);
       assert.equal(obj.upper, 1);
       assert.equal(obj.lower, 0);
       assert.equal(obj.step, 1);
