@@ -64,16 +64,16 @@ exports.population = function(types, environment) {
   return a.object(gettypes(types, social.Population), environment);
 };
 exports.everyone = function(types, environment) {
-  return a.object(gettypes(types,social.Everyone), environment);
+  return a.object(gettypes(types, social.Everyone), environment);
 };
 exports.public = function(types, environment) {
-  return a.object(gettypes(types,social.Public), environment);
+  return a.object(gettypes(types, social.Public), environment);
 };
 exports.private = function(types, environment) {
-  return a.object(gettypes(types,social.Private), environment);
+  return a.object(gettypes(types, social.Private), environment);
 };
 exports.direct = function(types, environment) {
-  return a.object(gettypes(types,social.Direct), environment);
+  return a.object(gettypes(types, social.Direct), environment);
 };
 exports.common = function(types, environment) {
   return a.object(gettypes(types, social.Common), environment);
