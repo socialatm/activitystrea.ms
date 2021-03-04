@@ -1,3 +1,8 @@
+## Modifications
+
+As required by the Apache license:
+Please note that all files dated 01/01/2021 & newer have been modified from the original...
+
 # Activity Streams 2.0
 
 Based on:
